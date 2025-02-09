@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="./output.css" rel="stylesheet">
-  <title>Dashboard - My Website</title>
+  <title>Investor-Startup Dashboard</title>
 
   <!-- Tailwind CSS (via CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -16,29 +16,55 @@
   <div class="flex">
     <!-- Sidebar -->
     <div class="bg-blue-600 text-white w-64 min-h-screen p-6">
-      <h2 class="text-2xl font-bold mb-6">Dashboard</h2>
+      <h2 class="text-2xl font-bold mb-6">Platform Dashboard</h2>
       <ul>
         <li><a href="dashboard.html" class="block py-2 hover:bg-blue-500 rounded">Dashboard</a></li>
-        <li><a href="profile.html" class="block py-2 hover:bg-blue-500 rounded">Profile</a></li>
-        <li><a href="#" class="block py-2 hover:bg-blue-500 rounded">Settings</a></li>
+        <li><a href="investors.html" class="block py-2 hover:bg-blue-500 rounded">Investors</a></li>
+        <li><a href="startups.html" class="block py-2 hover:bg-blue-500 rounded">Startups</a></li>
+        <li><a href="messages.html" class="block py-2 hover:bg-blue-500 rounded">Messages</a></li>
+        <li><a href="settings.html" class="block py-2 hover:bg-blue-500 rounded">Settings</a></li>
         <li><a href="login.html" class="block py-2 hover:bg-blue-500 rounded">Logout</a></li>
       </ul>
     </div>
 
     <!-- Main Content -->
     <div class="flex-1 p-6">
-      <h1 class="text-3xl font-bold mb-4">Welcome to Your Dashboard</h1>
-      <p class="text-lg text-gray-700">Here you can view your recent activities, updates, and more.</p>
+      <h1 class="text-3xl font-bold mb-4">Welcome, Investor/Startup</h1>
+      <p class="text-lg text-gray-700">Explore your recent activities, check startup profiles or connect with investors.</p>
 
-      <div class="mt-6">
+      <!-- Investor/Startup Overview Section -->
+      <div class="mt-6 flex space-x-6">
+        <div class="bg-white p-6 rounded-lg shadow-md w-1/3">
+          <h3 class="text-xl font-semibold mb-4">Startup Overview</h3>
+          <p class="text-gray-600">View your startup's profile, recent investments, and connections.</p>
+          <a href="startups.html" class="text-blue-600 hover:underline mt-4 inline-block">Go to Startups</a>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md w-1/3">
+          <h3 class="text-xl font-semibold mb-4">Investor Overview</h3>
+          <p class="text-gray-600">Check your investments, portfolio, and upcoming opportunities.</p>
+          <a href="investors.html" class="text-blue-600 hover:underline mt-4 inline-block">Go to Investors</a>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md w-1/3">
+          <h3 class="text-xl font-semibold mb-4">Messages</h3>
+          <p class="text-gray-600">View your messages with startups or investors to explore new opportunities.</p>
+          <a href="messages.html" class="text-blue-600 hover:underline mt-4 inline-block">Go to Messages</a>
+        </div>
+      </div>
+
+      <!-- Recent Activities -->
+      <div class="mt-8">
         <h2 class="text-2xl font-bold mb-4">Recent Activities</h2>
         <div class="bg-white p-4 rounded-lg shadow-md mb-4">
           <h3 class="font-semibold">Activity 1</h3>
-          <p class="text-gray-600">You added a new post to your blog.</p>
+          <p class="text-gray-600">You received an investment offer from an investor for your startup.</p>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-md mb-4">
+          <h3 class="font-semibold">Activity 2</h3>
+          <p class="text-gray-600">You connected with a new investor to discuss potential collaboration.</p>
         </div>
         <div class="bg-white p-4 rounded-lg shadow-md">
-          <h3 class="font-semibold">Activity 2</h3>
-          <p class="text-gray-600">You updated your profile details.</p>
+          <h3 class="font-semibold">Activity 3</h3>
+          <p class="text-gray-600">You reviewed a new startup pitch from a potential partner.</p>
         </div>
       </div>
     </div>

@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Choose Account Type</title>
   <style>
     * {
@@ -15,11 +14,26 @@
     body {
       font-family: Arial, sans-serif;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
       height: 100vh;
       background-color: #f0f0f0;
-      flex-direction: column;
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #3498db;
+    }
+
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 20px;
     }
 
     .container {
@@ -39,18 +53,13 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 20px;
       background-color: white;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       cursor: pointer;
       transition: all 0.3s ease;
     }
 
-    .optionBox:hover {
-      transform: scale(1.05);
-    }
-
-    .optionBox.selected {
+    .optionBox:hover, .optionBox.selected {
       border: 2px solid #3498db;
       box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4);
     }
@@ -69,16 +78,12 @@
       align-items: center;
     }
 
-    .radioButton.selected {
-      background-color: #3498db;
-    }
-
     .radioButton.selected::after {
       content: '';
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background-color: white;
+      background-color: #3498db;
     }
 
     .optionTitle {
@@ -98,66 +103,98 @@
       padding: 12px 30px;
       font-size: 1.1rem;
       font-weight: bold;
-      background-color: #3498db;
+      background-color: #ccc;
       color: white;
       border-radius: 25px;
       border: none;
-      cursor: pointer;
+      cursor: not-allowed;
       transition: background-color 0.3s ease;
       width: 200px;
     }
 
-    .createAccountButton:hover {
+    .createAccountButton.enabled {
+      background-color: #3498db;
+      cursor: pointer;
+    }
+
+    .createAccountButton.enabled:hover {
       background-color: #2980b9;
     }
 
-    .createAccountButton:focus {
-      outline: none;
+    .loginText {
+      margin-top: 15px;
+      font-size: 1rem;
+    }
+
+    .loginText a {
+      color: #3498db;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .loginText a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+    <img src="/src/assets/1.png" alt="SMEConnect Logo" class="logo" style="width: 100px; height: auto;">
+
+  <div class="title">Join as an Investor or a Startup</div>
 
   <div class="container">
     <div class="optionBox" id="startupBox" onclick="selectOption('startup')">
       <div class="radioButton" id="radioStartup"></div>
       <div class="optionTitle">Startup</div>
-      <div class="optionDescription">Sign up as a Startup looking for investors</div>
+      <!-- <div class="optionDescription">Sign up as a Startup looking for investors</div> -->
     </div>
 
     <div class="optionBox" id="investorBox" onclick="selectOption('investor')">
       <div class="radioButton" id="radioInvestor"></div>
       <div class="optionTitle">Investor</div>
-      <div class="optionDescription">Sign up as an Investor looking for startups</div>
+      <!-- <div class="optionDescription">Sign up as an Investor looking for startups</div> -->
     </div>
   </div>
 
-  <button class="createAccountButton" onclick="redirectToLogin()">Create Account</button>
+  <button class="createAccountButton" id="createAccountButton" onclick="redirectToLogin()" disabled>
+    Create Account
+  </button>
+  <div class="loginText">Already have an account? <a href="/login">Login</a></div>
 
   <script>
     let selectedOption = null;
 
     function selectOption(option) {
       if (selectedOption === option) {
+        document.getElementById(option + 'Box').classList.remove('selected');
+        document.getElementById('radio' + capitalizeFirstLetter(option)).classList.remove('selected');
+        selectedOption = null;
+        disableButton();
         return;
       }
 
-      // Reset both boxes
       document.getElementById('startupBox').classList.remove('selected');
       document.getElementById('investorBox').classList.remove('selected');
       document.getElementById('radioStartup').classList.remove('selected');
       document.getElementById('radioInvestor').classList.remove('selected');
 
-      // Mark the selected option
-      if (option === 'startup') {
-        document.getElementById('startupBox').classList.add('selected');
-        document.getElementById('radioStartup').classList.add('selected');
-      } else if (option === 'investor') {
-        document.getElementById('investorBox').classList.add('selected');
-        document.getElementById('radioInvestor').classList.add('selected');
-      }
+      document.getElementById(option + 'Box').classList.add('selected');
+      document.getElementById('radio' + capitalizeFirstLetter(option)).classList.add('selected');
 
       selectedOption = option;
+      enableButton();
+    }
+
+    function enableButton() {
+      const button = document.getElementById('createAccountButton');
+      button.disabled = false;
+      button.classList.add('enabled');
+    }
+
+    function disableButton() {
+      const button = document.getElementById('createAccountButton');
+      button.disabled = true;
+      button.classList.remove('enabled');
     }
 
     function redirectToLogin() {
@@ -165,11 +202,12 @@
         alert('Please select an account type first.');
         return;
       }
-
-      // Redirect to the login page (Replace with your actual login page URL)
       window.location.href = "/login";
     }
-  </script>
 
+    function capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+  </script>
 </body>
 </html>

@@ -9,6 +9,16 @@
     <title>Discover - SMEConnect</title>
 
     <style>
+              .staggered-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      /* Randomly applying different row spans to create staggered effect */
+      .staggered-card:nth-child(odd) {
+        grid-row: span 2;
+      }
         /* Zoom effect for the entire article div on hover */
         .zoom-card {
             transition: transform 0.3s ease;
@@ -61,24 +71,21 @@
 
 <body class="bg-black text-white font-sans">
 
-    <!-- Header Section -->
-    <header class="flex justify-between items-center p-6 border-b border-gray-700">
-        <div class="flex items-center">
-            <img src="logo.png" alt="SMEConnect Logo" class="h-8 inline-block"> <!-- Logo -->
-            <span class="text-2xl font-bold text-red-600 ml-2">SMEConnect</span>
+    <header class="flex justify-between items-center py-5 px-5 border-b border-gray-700 bg-black">
+        <div>
+            <img src="/src/assets/1.png" alt="SMEConnect Logo" class=" h-20" > <!-- Increased logo size -->
         </div>
-        <nav class="flex space-x-6">
-            <a href="index.html" class="text-gray-300 hover:text-white">Home</a>
-            <a href="discover.html" class="text-white border-b-2 border-red-600">Discover</a>
-            <a href="investors.html" class="text-gray-300 hover:text-white">For Investors</a>
-            <a href="smes.html" class="text-gray-300 hover:text-white">For SMEs</a>
-        </nav>
+        <div class="flex space-x-8"> <!-- Increased space between links -->
+            <a href="index.html" class="text-gray-300 hover:text-white text-lg">Home</a>
+            <a href="discover.html" class="text-white border-b-2 border-red-600 text-lg">Discover</a>
+            <a href="investors.html" class="text-gray-300 hover:text-white text-lg">For Investors</a>
+            <a href="smes.html" class="text-gray-300 hover:text-white text-lg">For SMEs</a>
+        </div>
         <div class="flex space-x-6">
-            <a href="login.html" class="bg-transparent text-white border-2 border-white px-6 py-2 rounded-md hover:bg-white hover:text-black">Login</a>
-            <a href="signup.html" class="bg-transparent text-white border-2 border-white px-6 py-2 rounded-md hover:bg-white hover:text-black">Sign Up</a>
+            <a href="login.html" class="bg-transparent text-white border-2 border-white px-5 py-2.5 rounded-md hover:bg-white hover:text-black text-lg">Login</a>
+            <a href="signup.html" class="bg-transparent text-white border-2 border-white px-5 py-2.5 rounded-md hover:bg-white hover:text-black text-lg">Sign Up</a>
         </div>
     </header>
-
     <!-- Navigation Bar (Centered and Eye-Catching) -->
     <div class="flex justify-center mt-12">
         <div class="nav-bar flex space-x-6">
@@ -98,99 +105,208 @@
     <!-- Articles Section -->
     <section class="max-w-6xl mx-auto py-12">
         <h2 class="text-3xl font-bold text-center mb-6">Latest Articles</h2>
-        <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            <!-- Article Card 1 -->
-            <div class="bg-gray-900 p-6 rounded-lg shadow-md zoom-card">
-                <a href="article1.html">
-                    <img src="https://via.placeholder.com/300x200" alt="Article Image" class="rounded-md w-full h-48 object-cover mb-4">
-                    <h3 class="text-xl font-semibold">SME Growth in Nepal Hits New High</h3>
-                    <p class="text-gray-400 mt-2">Recent reports show a 30% increase in SME funding and growth opportunities...</p>
-                    <a href="article1.html" class="text-red-500 mt-4 inline-block hover:underline">Read more</a>
-                </a>
-            </div>
-
-            <!-- Article Card 2 -->
-            <div class="bg-gray-900 p-6 rounded-lg shadow-md zoom-card">
-                <a href="article2.html">
-                    <img src="https://via.placeholder.com/300x200" alt="Article Image" class="rounded-md w-full h-48 object-cover mb-4">
-                    <h3 class="text-xl font-semibold">New Policies Favor Small Businesses</h3>
-                    <p class="text-gray-400 mt-2">Government announces tax incentives for SMEs, making it easier to secure funding...</p>
-                    <a href="article2.html" class="text-red-500 mt-4 inline-block hover:underline">Read more</a>
-                </a>
-            </div>
-
-            <!-- Article Card 3 -->
-            <div class="bg-gray-900 p-6 rounded-lg shadow-md zoom-card">
-                <a href="article3.html">
-                    <img src="https://via.placeholder.com/300x200" alt="Article Image" class="rounded-md w-full h-48 object-cover mb-4">
-                    <h3 class="text-xl font-semibold">Innovations in Agriculture Boost Rural SMEs</h3>
-                    <p class="text-gray-400 mt-2">New farming technologies are creating new opportunities for SMEs in the agriculture sector...</p>
-                    <a href="article3.html" class="text-red-500 mt-4 inline-block hover:underline">Read more</a>
-                </a>
-            </div>
-
-            <!-- Article Card 4 -->
-            <div class="bg-gray-900 p-6 rounded-lg shadow-md zoom-card">
-                <a href="article4.html">
-                    <img src="https://via.placeholder.com/300x200" alt="Article Image" class="rounded-md w-full h-48 object-cover mb-4">
-                    <h3 class="text-xl font-semibold">SME Access to Technology in Asia</h3>
-                    <p class="text-gray-400 mt-2">Emerging tech solutions helping SMEs across Asia embrace digital transformation...</p>
-                    <a href="article4.html" class="text-red-500 mt-4 inline-block hover:underline">Read more</a>
-                </a>
-            </div>
-
-            <!-- Article Card 5 -->
-            <div class="bg-gray-900 p-6 rounded-lg shadow-md zoom-card">
-                <a href="article5.html">
-                    <img src="https://via.placeholder.com/300x200" alt="Article Image" class="rounded-md w-full h-48 object-cover mb-4">
-                    <h3 class="text-xl font-semibold">The Rise of FinTech Startups</h3>
-                    <p class="text-gray-400 mt-2">FinTech startups are reshaping the financial landscape for SMEs and small businesses...</p>
-                    <a href="article5.html" class="text-red-500 mt-4 inline-block hover:underline">Read more</a>
-                </a>
-            </div>
-
-            <!-- Article Card 6 -->
-            <div class="bg-gray-900 p-6 rounded-lg shadow-md zoom-card">
-                <a href="article6.html">
-                    <img src="https://via.placeholder.com/300x200" alt="Article Image" class="rounded-md w-full h-48 object-cover mb-4">
-                    <h3 class="text-xl font-semibold">The Future of SME Growth in Africa</h3>
-                    <p class="text-gray-400 mt-2">A deep dive into how SMEs are fostering economic growth in Africa despite challenges...</p>
-                    <a href="article6.html" class="text-red-500 mt-4 inline-block hover:underline">Read more</a>
-                </a>
-            </div>
-
-            <!-- Article Card 7 -->
-            <div class="bg-gray-900 p-6 rounded-lg shadow-md zoom-card">
-                <a href="article7.html">
-                    <img src="https://via.placeholder.com/300x200" alt="Article Image" class="rounded-md w-full h-48 object-cover mb-4">
-                    <h3 class="text-xl font-semibold">SMEs in Latin America Overcome Economic Hurdles</h3>
-                    <p class="text-gray-400 mt-2">Despite economic downturns, SMEs in Latin America are discovering new avenues for growth...</p>
-                    <a href="article7.html" class="text-red-500 mt-4 inline-block hover:underline">Read more</a>
-                </a>
-            </div>
-
-            <!-- Article Card 8 -->
-            <div class="bg-gray-900 p-6 rounded-lg shadow-md zoom-card">
-                <a href="article8.html">
-                    <img src="https://via.placeholder.com/300x200" alt="Article Image" class="rounded-md w-full h-48 object-cover mb-4">
-                    <h3 class="text-xl font-semibold">E-commerce Startups in the Middle East</h3>
-                    <p class="text-gray-400 mt-2">E-commerce is rapidly growing, and many startups in the Middle East are leading the charge...</p>
-                    <a href="article8.html" class="text-red-500 mt-4 inline-block hover:underline">Read more</a>
-                </a>
-            </div>
-
-            <!-- Article Card 9 -->
-            <div class="bg-gray-900 p-6 rounded-lg shadow-md zoom-card">
-                <a href="article9.html">
-                    <img src="https://via.placeholder.com/300x200" alt="Article Image" class="rounded-md w-full h-48 object-cover mb-4">
-                    <h3 class="text-xl font-semibold">AI and Automation for SMEs</h3>
-                    <p class="text-gray-400 mt-2">How AI and automation are helping SMEs streamline operations and improve efficiency...</p>
-                    <a href="article9.html" class="text-red-500 mt-4 inline-block hover:underline">Read more</a>
-                </a>
-            </div>
+  
+        <!-- Staggered Grid of Articles -->
+        <div class="staggered-grid">
+          <!-- Article 1 -->
+          <div
+            class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0"
+          >
+            <a href="article1.html">
+              <img
+                src="https://via.placeholder.com/300x200"
+                alt="Article Image"
+                class="rounded-md w-full h-48 object-cover mb-4"
+              />
+              <h3 class="text-xl font-semibold">
+                SME Growth in Nepal Hits New High
+              </h3>
+              <p class="text-gray-400 mt-2">
+                Recent reports show a 30% increase in SME funding and growth
+                opportunities...
+              </p>
+              <a
+                href="article1.html"
+                class="text-red-500 mt-4 inline-block hover:underline"
+                >Read more</a
+              >
+            </a>
+          </div>
+  
+          <!-- Article 2 -->
+          <div
+            class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0"
+          >
+            <a href="article2.html">
+              <img
+                src="https://via.placeholder.com/300x200"
+                alt="Article Image"
+                class="rounded-md w-full h-48 object-cover mb-4"
+              />
+              <h3 class="text-xl font-semibold">
+                New Policies Favor Small Businesses
+              </h3>
+              <p class="text-gray-400 mt-2">
+                Government announces tax incentives for SMEs, making it easier to
+                secure funding...
+              </p>
+              <a
+                href="article2.html"
+                class="text-red-500 mt-4 inline-block hover:underline"
+                >Read more</a
+              >
+            </a>
+          </div>
+  
+          <!-- Article 3 -->
+          <div
+            class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0"
+          >
+            <a href="article3.html">
+              <img
+                src="https://via.placeholder.com/300x200"
+                alt="Article Image"
+                class="rounded-md w-full h-48 object-cover mb-4"
+              />
+              <h3 class="text-xl font-semibold">
+                Innovations in Agriculture Boost Rural SMEs
+              </h3>
+              <p class="text-gray-400 mt-2">
+                New farming technologies are creating new opportunities for SMEs
+                in the agriculture sector...
+              </p>
+              <a
+                href="article3.html"
+                class="text-red-500 mt-4 inline-block hover:underline"
+                >Read more</a
+              >
+            </a>
+          </div>
+  
+          <!-- Article 4 -->
+          <div
+            class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0"
+          >
+            <a href="article4.html">
+              <img
+                src="https://via.placeholder.com/300x200"
+                alt="Article Image"
+                class="rounded-md w-full h-48 object-cover mb-4"
+              />
+              <h3 class="text-xl font-semibold">
+                SME Access to Technology in Asia
+              </h3>
+              <p class="text-gray-400 mt-2">
+                Emerging tech solutions helping SMEs across Asia embrace digital
+                transformation...
+              </p>
+              <a
+                href="article4.html"
+                class="text-red-500 mt-4 inline-block hover:underline"
+                >Read more</a
+              >
+            </a>
+          </div>
+  
+          <!-- Article 5 -->
+          <div
+            class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0"
+          >
+            <a href="article5.html">
+              <img
+                src="https://via.placeholder.com/300x200"
+                alt="Article Image"
+                class="rounded-md w-full h-48 object-cover mb-4"
+              />
+              <h3 class="text-xl font-semibold">The Rise of FinTech Startups</h3>
+              <p class="text-gray-400 mt-2">
+                FinTech startups are reshaping the financial landscape for SMEs
+                and small businesses...
+              </p>
+              <a
+                href="article5.html"
+                class="text-red-500 mt-4 inline-block hover:underline"
+                >Read more</a
+              >
+            </a>
+          </div>
+  
+          <!-- Article 6 -->
+          <div
+            class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0"
+          >
+            <a href="article6.html">
+              <img
+                src="https://via.placeholder.com/300x200"
+                alt="Article Image"
+                class="rounded-md w-full h-48 object-cover mb-4"
+              />
+              <h3 class="text-xl font-semibold">
+                The Future of SME Growth in Africa
+              </h3>
+              <p class="text-gray-400 mt-2">
+                A deep dive into how SMEs are fostering economic growth in Africa
+                despite challenges...
+              </p>
+              <a
+                href="article6.html"
+                class="text-red-500 mt-4 inline-block hover:underline"
+                >Read more</a
+              >
+            </a>
+          </div>
+  
+          <!-- Article 7 -->
+          <div
+            class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0"
+          >
+            <a href="article7.html">
+              <img
+                src="https://via.placeholder.com/300x200"
+                alt="Article Image"
+                class="rounded-md w-full h-48 object-cover mb-4"
+              />
+              <h3 class="text-xl font-semibold">
+                SMEs in Latin America Overcome Economic Hurdles
+              </h3>
+              <p class="text-gray-400 mt-2">
+                Despite economic downturns, SMEs in Latin America are discovering
+                new avenues for growth...
+              </p>
+              <a
+                href="article7.html"
+                class="text-red-500 mt-4 inline-block hover:underline"
+                >Read more</a
+              >
+            </a>
+          </div>
+  
+          <!-- Article 8 -->
+          <div
+            class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0"
+          >
+            <a href="article8.html">
+              <img
+                src="https://via.placeholder.com/300x200"
+                alt="Article Image"
+                class="rounded-md w-full h-48 object-cover mb-4"
+              />
+              <h3 class="text-xl font-semibold">
+                Boosting SME Growth in the Middle East
+              </h3>
+              <p class="text-gray-400 mt-2">
+                Middle Eastern countries are paving the way for innovative SME
+                growth through infrastructure investments...
+              </p>
+              <a
+                href="article8.html"
+                class="text-red-500 mt-4 inline-block hover:underline"
+                >Read more</a
+              >
+            </a>
+          </div>
         </div>
-    </section>
+      </section>
     <footer class="bg-gray-900 text-white py-12">
       <div class="max-w-6xl mx-auto px-6">
           <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
