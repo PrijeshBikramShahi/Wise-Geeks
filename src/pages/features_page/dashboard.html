@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="./output.css" rel="stylesheet">
+  <title>Dashboard - My Website</title>
+
+  <!-- Tailwind CSS (via CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <!-- Dashboard Sidebar and Content -->
+  <div class="flex">
+    <!-- Sidebar -->
+    <div class="bg-blue-600 text-white w-64 min-h-screen p-6">
+      <h2 class="text-2xl font-bold mb-6">Dashboard</h2>
+      <ul>
+        <li><a href="dashboard.html" class="block py-2 hover:bg-blue-500 rounded">Dashboard</a></li>
+        <li><a href="profile.html" class="block py-2 hover:bg-blue-500 rounded">Profile</a></li>
+        <li><a href="#" class="block py-2 hover:bg-blue-500 rounded">Settings</a></li>
+        <li><a href="login.html" class="block py-2 hover:bg-blue-500 rounded">Logout</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 p-6">
+      <h1 class="text-3xl font-bold mb-4">Welcome to Your Dashboard</h1>
+      <p class="text-lg text-gray-700">Here you can view your recent activities, updates, and more.</p>
+
+      <div class="mt-6">
+        <h2 class="text-2xl font-bold mb-4">Recent Activities</h2>
+        <div class="bg-white p-4 rounded-lg shadow-md mb-4">
+          <h3 class="font-semibold">Activity 1</h3>
+          <p class="text-gray-600">You added a new post to your blog.</p>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-md">
+          <h3 class="font-semibold">Activity 2</h3>
+          <p class="text-gray-600">You updated your profile details.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
