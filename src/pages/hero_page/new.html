@@ -6,13 +6,143 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <title>SMEConnect</title>
+  <style>
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    .optionBox {
+      position: relative;
+      width: 300px;
+      height: 200px;
+      border-radius: 15px;
+      border: 2px solid #ccc;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .optionBox:hover, .optionBox.selected {
+      border: 2px solid #e60000;
+      box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4);
+    }
+
+    .radioButton {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: white;
+      border: 2px solid #e60000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .radioButton.selected::after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #e60000;
+    }
+
+    .optionTitle {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .optionDescription {
+      font-size: 1rem;
+      color: #555;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .createAccountButton {
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      background-color: #ccc;
+      color: white;
+      border-radius: 25px;
+      border: none;
+      cursor: not-allowed;
+      transition: background-color 0.3s ease;
+      width: 200px;
+    }
+
+    .createAccountButton.enabled {
+      background-color: #e60000;
+      cursor: pointer;
+    }
+
+    .createAccountButton.enabled:hover {
+      background-color: #e60000;
+    }
+
+    .landingSection {
+      /* background-color: #2d2d2d; */
+      color: white;
+      padding: 50px 0;
+      text-align: center;
+      min-height: 100vh; /* This makes the landing section fill the screen */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .landingSection h2 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    .landingSection p {
+      font-size: 1.25rem;
+      margin-top: 20px;
+    }
+
+    .landingButton {
+      background-color: #e60000;
+      color: white;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .landingButton:hover {
+      background-color: #e60000;
+    }
+  </style>
 </head>
 <body class="bg-black text-white font-sans">
 
   <!-- Header -->
-  <header class="flex justify-between items-center p-6">
+  <header class="flex justify-between items-center">
     <div class="text-2xl font-bold text-red-600">
-      <img src="logo.png" alt="SMEConnect Logo" class="h-8 inline-block"> <!-- Replace with your logo -->
+      <img src="/src/assets/1.png" alt="SMEConnect Logo" class="h-28 inline-block"> <!-- Replace with your logo -->
     </div>
     <div class="flex space-x-6">
       <a href="login.html" class="bg-transparent text-white border-2 border-white px-6 py-2 rounded-md hover:bg-white hover:text-black">Login</a>
@@ -20,20 +150,36 @@
     </div>
   </header>
 
+  <!-- Landing Section -->
+  <section class="landingSection">
+    <h2>Welcome to SMEConnect</h2>
+    <p>Empowering startups and investors to connect and create meaningful business relationships.</p>
+    <button class="landingButton" onclick="window.location.href='#heroSection'">Get Started</button>
+  </section>
+
   <!-- Hero Section -->
-  <section class="flex flex-col items-center justify-center py-32 text-center">
+  <section id="heroSection" class="flex flex-col items-center justify-center py-5 text-center">
     <h1 class="text-5xl font-bold mb-4">Welcome to SMEConnect</h1>
-    <p class="text-lg text-gray-400 mb-8">Connecting SMEs and Investors to foster growth and opportunities.</p>
-    
-    <div class="flex space-x-8">
-      <a href="#discover" class="bg-transparent text-white border-2 border-white px-6 py-3 rounded-md hover:bg-red-600 hover:text-white transition">Discover</a>
-      <a href="#investors" class="bg-transparent text-white border-2 border-white px-6 py-3 rounded-md hover:bg-red-600 hover:text-white transition">For Investors</a>
-      <a href="#smes" class="bg-transparent text-white border-2 border-white px-6 py-3 rounded-md hover:bg-red-600 hover:text-white transition">For SMEs</a>
+    <div class="title">Join as an Investor or a Startup</div>
+
+    <div class="container">
+      <div class="optionBox" id="startupBox" onclick="selectOption('startup')">
+        <div class="radioButton" id="radioStartup"></div>
+        <div class="optionTitle">Startup</div>
+        <!-- <div class="optionDescription">Sign up as a Startup looking for investors</div> -->
+      </div>
+
+      <div class="optionBox" id="investorBox" onclick="selectOption('investor')">
+        <div class="radioButton" id="radioInvestor"></div>
+        <div class="optionTitle">Investor</div>
+        <!-- <div class="optionDescription">Sign up as an Investor looking for startups</div> -->
+      </div>
     </div>
 
-    <div class="mt-12">
-      <img src="logo.png" alt="SMEConnect Logo" class="h-24 mx-auto"> <!-- Replace with your logo -->
-    </div>
+    <button class="createAccountButton" id="createAccountButton" onclick="redirectToLogin()" disabled>
+      Create Account
+    </button>
+
   </section>
 
   <!-- Footer Section -->
@@ -41,6 +187,53 @@
     <p>&copy; 2025 SMEConnect. All Rights Reserved.</p>
   </footer>
 
-  <script src="app.js"></script>
+  <script>
+    let selectedOption = null;
+
+    function selectOption(option) {
+      if (selectedOption === option) {
+        document.getElementById(option + 'Box').classList.remove('selected');
+        document.getElementById('radio' + capitalizeFirstLetter(option)).classList.remove('selected');
+        selectedOption = null;
+        disableButton();
+        return;
+      }
+
+      document.getElementById('startupBox').classList.remove('selected');
+      document.getElementById('investorBox').classList.remove('selected');
+      document.getElementById('radioStartup').classList.remove('selected');
+      document.getElementById('radioInvestor').classList.remove('selected');
+
+      document.getElementById(option + 'Box').classList.add('selected');
+      document.getElementById('radio' + capitalizeFirstLetter(option)).classList.add('selected');
+
+      selectedOption = option;
+      enableButton();
+    }
+
+    function enableButton() {
+      const button = document.getElementById('createAccountButton');
+      button.disabled = false;
+      button.classList.add('enabled');
+    }
+
+    function disableButton() {
+      const button = document.getElementById('createAccountButton');
+      button.disabled = true;
+      button.classList.remove('enabled');
+    }
+
+    function redirectToLogin() {
+      if (selectedOption === null) {
+        alert('Please select an account type first.');
+        return;
+      }
+      window.location.href = "/login";
+    }
+
+    function capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+  </script>
 </body>
 </html>

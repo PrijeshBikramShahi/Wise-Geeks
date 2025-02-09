@@ -9,16 +9,17 @@
     <title>Discover - SMEConnect</title>
 
     <style>
-              .staggered-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 20px;
-      }
+        .staggered-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
 
-      /* Randomly applying different row spans to create staggered effect */
-      .staggered-card:nth-child(odd) {
-        grid-row: span 2;
-      }
+        /* Randomly applying different row spans to create staggered effect */
+        .staggered-card:nth-child(odd) {
+            grid-row: span 2;
+        }
+
         /* Zoom effect for the entire article div on hover */
         .zoom-card {
             transition: transform 0.3s ease;
@@ -56,6 +57,11 @@
             transform: scale(1.1);
         }
 
+        .nav-bar a.active {
+            border-bottom: 2px solid #e60000;
+            color: #e9e1e1;
+        }
+
         /* Social media icons styling */
         .social-icons a {
             color: gray;
@@ -71,28 +77,27 @@
 
 <body class="bg-black text-white font-sans">
 
-    <header class="flex justify-between items-center py-5 px-5 border-b border-gray-700 bg-black">
-        <div>
-            <img src="/src/assets/1.png" alt="SMEConnect Logo" class=" h-20" > <!-- Increased logo size -->
+    <header class="flex items-center py-5 px-5 border-b border-gray-700 bg-black">
+        <div class="flex-1">
+            <img src="/src/assets/1.png" alt="SMEConnect Logo" class="h-20">
         </div>
-        <div class="flex space-x-8"> <!-- Increased space between links -->
-            <a href="index.html" class="text-gray-300 hover:text-white text-lg">Home</a>
+        <div class="flex-1 flex justify-center space-x-8">
             <a href="discover.html" class="text-white border-b-2 border-red-600 text-lg">Discover</a>
             <a href="investors.html" class="text-gray-300 hover:text-white text-lg">For Investors</a>
             <a href="smes.html" class="text-gray-300 hover:text-white text-lg">For SMEs</a>
         </div>
-        <div class="flex space-x-6">
+        <div class="flex-1 flex justify-end space-x-6">
             <a href="login.html" class="bg-transparent text-white border-2 border-white px-5 py-2.5 rounded-md hover:bg-white hover:text-black text-lg">Login</a>
-            <a href="signup.html" class="bg-transparent text-white border-2 border-white px-5 py-2.5 rounded-md hover:bg-white hover:text-black text-lg">Sign Up</a>
         </div>
     </header>
+    
     <!-- Navigation Bar (Centered and Eye-Catching) -->
     <div class="flex justify-center mt-12">
         <div class="nav-bar flex space-x-6">
-            <a href="#blogs">Blogs</a>
-            <a href="#all-pages">All Pages</a>
-            <a href="#about-us">About Us</a>
-            <a href="#contact">Contact</a>
+            <a href="discover.html" class="active">All Pages</a> <!-- "All Pages" set as the default page -->
+            <a href="blogs.html">Blogs</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
         </div>
     </div>
 
@@ -108,261 +113,144 @@
   
         <!-- Staggered Grid of Articles -->
         <div class="staggered-grid">
-          <!-- Article 1 -->
-          <div
-            class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0"
-          >
-            <a href="article1.html">
-              <img
-                src="https://via.placeholder.com/300x200"
-                alt="Article Image"
-                class="rounded-md w-full h-48 object-cover mb-4"
-              />
-              <h3 class="text-xl font-semibold">
-                SME Growth in Nepal Hits New High
-              </h3>
-              <p class="text-gray-400 mt-2">
-                Recent reports show a 30% increase in SME funding and growth
-                opportunities...
-              </p>
-              <a
-                href="article1.html"
-                class="text-red-500 mt-4 inline-block hover:underline"
-                >Read more</a
-              >
-            </a>
-          </div>
+            <!-- Article 1 -->
+            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0">
+                <a href="article1.html">
+                    <img src="https://via.placeholder.com/300x200" alt="Article Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                    <h3 class="text-xl font-semibold">SME Growth in Nepal Hits New High</h3>
+                    <p class="text-gray-400 mt-2">Recent reports show a 30% increase in SME funding and growth opportunities...</p>
+                    <a href="article1.html" class="text-red-500 mt-4 inline-block hover:underline">Read more</a>
+                </a>
+            </div>
   
-          <!-- Article 2 -->
-          <div
-            class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0"
-          >
-            <a href="article2.html">
-              <img
-                src="https://via.placeholder.com/300x200"
-                alt="Article Image"
-                class="rounded-md w-full h-48 object-cover mb-4"
-              />
-              <h3 class="text-xl font-semibold">
-                New Policies Favor Small Businesses
-              </h3>
-              <p class="text-gray-400 mt-2">
-                Government announces tax incentives for SMEs, making it easier to
-                secure funding...
-              </p>
-              <a
-                href="article2.html"
-                class="text-red-500 mt-4 inline-block hover:underline"
-                >Read more</a
-              >
-            </a>
-          </div>
+            <!-- Article 2 -->
+            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0">
+                <a href="article2.html">
+                    <img src="https://via.placeholder.com/300x200" alt="Article Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                    <h3 class="text-xl font-semibold">New Policies Favor Small Businesses</h3>
+                    <p class="text-gray-400 mt-2">Government announces tax incentives for SMEs, making it easier to secure funding...</p>
+                    <a href="article2.html" class="text-red-500 mt-4 inline-block hover:underline">Read more</a>
+                </a>
+            </div>
   
-          <!-- Article 3 -->
-          <div
-            class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0"
-          >
-            <a href="article3.html">
-              <img
-                src="https://via.placeholder.com/300x200"
-                alt="Article Image"
-                class="rounded-md w-full h-48 object-cover mb-4"
-              />
-              <h3 class="text-xl font-semibold">
-                Innovations in Agriculture Boost Rural SMEs
-              </h3>
-              <p class="text-gray-400 mt-2">
-                New farming technologies are creating new opportunities for SMEs
-                in the agriculture sector...
-              </p>
-              <a
-                href="article3.html"
-                class="text-red-500 mt-4 inline-block hover:underline"
-                >Read more</a
-              >
-            </a>
-          </div>
+            <!-- Article 3 -->
+            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0">
+                <a href="article3.html">
+                    <img src="https://via.placeholder.com/300x200" alt="Article Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                    <h3 class="text-xl font-semibold">Innovations in Agriculture Boost Rural SMEs</h3>
+                    <p class="text-gray-400 mt-2">New farming technologies are creating new opportunities for SMEs in the agriculture sector...</p>
+                    <a href="article3.html" class="text-red-500 mt-4 inline-block hover:underline">Read more</a>
+                </a>
+            </div>
   
-          <!-- Article 4 -->
-          <div
-            class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0"
-          >
-            <a href="article4.html">
-              <img
-                src="https://via.placeholder.com/300x200"
-                alt="Article Image"
-                class="rounded-md w-full h-48 object-cover mb-4"
-              />
-              <h3 class="text-xl font-semibold">
-                SME Access to Technology in Asia
-              </h3>
-              <p class="text-gray-400 mt-2">
-                Emerging tech solutions helping SMEs across Asia embrace digital
-                transformation...
-              </p>
-              <a
-                href="article4.html"
-                class="text-red-500 mt-4 inline-block hover:underline"
-                >Read more</a
-              >
-            </a>
-          </div>
+            <!-- Article 4 -->
+            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0">
+                <a href="article4.html">
+                    <img src="https://via.placeholder.com/300x200" alt="Article Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                    <h3 class="text-xl font-semibold">SME Access to Technology in Asia</h3>
+                    <p class="text-gray-400 mt-2">Emerging tech solutions helping SMEs across Asia embrace digital transformation...</p>
+                    <a href="article4.html" class="text-red-500 mt-4 inline-block hover:underline">Read more</a>
+                </a>
+            </div>
   
-          <!-- Article 5 -->
-          <div
-            class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0"
-          >
-            <a href="article5.html">
-              <img
-                src="https://via.placeholder.com/300x200"
-                alt="Article Image"
-                class="rounded-md w-full h-48 object-cover mb-4"
-              />
-              <h3 class="text-xl font-semibold">The Rise of FinTech Startups</h3>
-              <p class="text-gray-400 mt-2">
-                FinTech startups are reshaping the financial landscape for SMEs
-                and small businesses...
-              </p>
-              <a
-                href="article5.html"
-                class="text-red-500 mt-4 inline-block hover:underline"
-                >Read more</a
-              >
-            </a>
-          </div>
+            <!-- Article 5 -->
+            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0">
+                <a href="article5.html">
+                    <img src="https://via.placeholder.com/300x200" alt="Article Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                    <h3 class="text-xl font-semibold">The Rise of FinTech Startups</h3>
+                    <p class="text-gray-400 mt-2">FinTech startups are reshaping the financial landscape for SMEs and small businesses...</p>
+                    <a href="article5.html" class="text-red-500 mt-4 inline-block hover:underline">Read more</a>
+                </a>
+            </div>
   
-          <!-- Article 6 -->
-          <div
-            class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0"
-          >
-            <a href="article6.html">
-              <img
-                src="https://via.placeholder.com/300x200"
-                alt="Article Image"
-                class="rounded-md w-full h-48 object-cover mb-4"
-              />
-              <h3 class="text-xl font-semibold">
-                The Future of SME Growth in Africa
-              </h3>
-              <p class="text-gray-400 mt-2">
-                A deep dive into how SMEs are fostering economic growth in Africa
-                despite challenges...
-              </p>
-              <a
-                href="article6.html"
-                class="text-red-500 mt-4 inline-block hover:underline"
-                >Read more</a
-              >
-            </a>
-          </div>
+            <!-- Article 6 -->
+            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0">
+                <a href="article6.html">
+                    <img src="https://via.placeholder.com/300x200" alt="Article Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                    <h3 class="text-xl font-semibold">The Future of SME Growth in Africa</h3>
+                    <p class="text-gray-400 mt-2">A deep dive into how SMEs are fostering economic growth in Africa despite challenges...</p>
+                    <a href="article6.html" class="text-red-500 mt-4 inline-block hover:underline">Read more</a>
+                </a>
+            </div>
   
-          <!-- Article 7 -->
-          <div
-            class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0"
-          >
-            <a href="article7.html">
-              <img
-                src="https://via.placeholder.com/300x200"
-                alt="Article Image"
-                class="rounded-md w-full h-48 object-cover mb-4"
-              />
-              <h3 class="text-xl font-semibold">
-                SMEs in Latin America Overcome Economic Hurdles
-              </h3>
-              <p class="text-gray-400 mt-2">
-                Despite economic downturns, SMEs in Latin America are discovering
-                new avenues for growth...
-              </p>
-              <a
-                href="article7.html"
-                class="text-red-500 mt-4 inline-block hover:underline"
-                >Read more</a
-              >
-            </a>
-          </div>
+            <!-- Article 7 -->
+            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0">
+                <a href="article7.html">
+                    <img src="https://via.placeholder.com/300x200" alt="Article Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                    <h3 class="text-xl font-semibold">SMEs in Latin America Overcome Economic Hurdles</h3>
+                    <p class="text-gray-400 mt-2">Despite economic downturns, SMEs in Latin America are discovering new avenues for growth...</p>
+                    <a href="article7.html" class="text-red-500 mt-4 inline-block hover:underline">Read more</a>
+                </a>
+            </div>
   
-          <!-- Article 8 -->
-          <div
-            class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0"
-          >
-            <a href="article8.html">
-              <img
-                src="https://via.placeholder.com/300x200"
-                alt="Article Image"
-                class="rounded-md w-full h-48 object-cover mb-4"
-              />
-              <h3 class="text-xl font-semibold">
-                Boosting SME Growth in the Middle East
-              </h3>
-              <p class="text-gray-400 mt-2">
-                Middle Eastern countries are paving the way for innovative SME
-                growth through infrastructure investments...
-              </p>
-              <a
-                href="article8.html"
-                class="text-red-500 mt-4 inline-block hover:underline"
-                >Read more</a
-              >
-            </a>
-          </div>
+            <!-- Article 8 -->
+            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0">
+                <a href="article8.html">
+                    <img src="https://via.placeholder.com/300x200" alt="Article Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                    <h3 class="text-xl font-semibold">Boosting SME Growth in the Middle East</h3>
+                    <p class="text-gray-400 mt-2">Middle Eastern countries are paving the way for innovative SME growth through infrastructure investments...</p>
+                    <a href="article8.html" class="text-red-500 mt-4 inline-block hover:underline">Read more</a>
+                </a>
+            </div>
         </div>
-      </section>
+    </section>
+
     <footer class="bg-gray-900 text-white py-12">
-      <div class="max-w-6xl mx-auto px-6">
-          <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-              
-              <!-- Company Information Section -->
-              <div>
-                  <h3 class="text-xl font-semibold mb-4">Company</h3>
-                  <ul class="space-y-3">
-                      <li><a href="#about" class="hover:text-red-500">About Us</a></li>
-                      <li><a href="#careers" class="hover:text-red-500">Careers</a></li>
-                      <li><a href="#contact" class="hover:text-red-500">Contact</a></li>
-                      <li><a href="#terms" class="hover:text-red-500">Terms & Conditions</a></li>
-                  </ul>
-              </div>
-  
-              <!-- Services Section -->
-              <div>
-                  <h3 class="text-xl font-semibold mb-4">Services</h3>
-                  <ul class="space-y-3">
-                      <li><a href="#consulting" class="hover:text-red-500">Consulting</a></li>
-                      <li><a href="#investment" class="hover:text-red-500">Investment</a></li>
-                      <li><a href="#partnerships" class="hover:text-red-500">Partnerships</a></li>
-                      <li><a href="#financing" class="hover:text-red-500">Financing</a></li>
-                  </ul>
-              </div>
-  
-              <!-- Social Media Section -->
-              <div>
-                  <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
-                  <div class="flex space-x-4">
-                      <a href="https://facebook.com" target="_blank" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-facebook"></i></a>
-                      <a href="https://twitter.com" target="_blank" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-twitter"></i></a>
-                      <a href="https://instagram.com" target="_blank" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-instagram"></i></a>
-                      <a href="https://linkedin.com" target="_blank" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-linkedin"></i></a>
-                  </div>
-              </div>
-  
-              <!-- Newsletter Subscription Section -->
-              <div>
-                  <h3 class="text-xl font-semibold mb-4">Subscribe</h3>
-                  <p class="text-gray-400 mb-4">Stay updated with the latest news, articles, and updates from SMEConnect.</p>
-                  <form action="#" method="POST">
-                      <input type="email" name="email" placeholder="Enter your email" class="p-3 bg-gray-700 text-white rounded-md w-full mb-4">
-                      <button type="submit" class="bg-red-600 text-white p-3 rounded-md w-full hover:bg-red-500">Subscribe</button>
-                  </form>
-              </div>
-          </div>
-  
-          <div class="text-center mt-12 border-t border-gray-700 pt-6">
-              <p class="text-sm text-gray-400">&copy; 2025 SMEConnect. All rights reserved.</p>
-          </div>
-      </div>
-  </footer>
-  
-  <!-- Adding FontAwesome for social media icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                
+                <!-- Company Information Section -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Company</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="hover:text-red-500">About Us</a></li>
+                        <li><a href="#careers" class="hover:text-red-500">Careers</a></li>
+                        <li><a href="#contact" class="hover:text-red-500">Contact</a></li>
+                        <li><a href="#terms" class="hover:text-red-500">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Services Section -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#consulting" class="hover:text-red-500">Consulting</a></li>
+                        <li><a href="#investment" class="hover:text-red-500">Investment</a></li>
+                        <li><a href="#partnerships" class="hover:text-red-500">Partnerships</a></li>
+                        <li><a href="#financing" class="hover:text-red-500">Financing</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Social Media Section -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://facebook.com" target="_blank" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com" target="_blank" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+    
+                <!-- Newsletter Subscription Section -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Subscribe</h3>
+                    <p class="text-gray-400 mb-4">Stay updated with the latest news, articles, and updates from SMEConnect.</p>
+                    <form action="#" method="POST">
+                        <input type="email" name="email" placeholder="Enter your email" class="p-3 bg-gray-700 text-white rounded-md w-full mb-4">
+                        <button type="submit" class="bg-red-600 text-white p-3 rounded-md w-full hover:bg-red-500">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+    
+            <div class="text-center mt-12 border-t border-gray-700 pt-6">
+                <p class="text-sm text-gray-400">&copy; 2025 SMEConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Adding FontAwesome for social media icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 
 </body>
 

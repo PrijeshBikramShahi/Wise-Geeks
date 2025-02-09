@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Contact Us - SMEConnect</title>
+
+    <style>
+        /* Styling for the navigation bar */
+        .nav-bar {
+            background-color: #1c1c1c;
+            border-radius: 30px;
+            padding: 10px 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-bar:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-bar a {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-bar a:hover {
+            background-color: #e60000;
+            transform: scale(1.1);
+        }
+
+        .nav-bar a.active {
+            border-bottom: 2px solid #e60000;
+            color: #e9e1e1;
+        }
+
+        /* Social media icons styling */
+        .social-icons a {
+            color: gray;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: white;
+        }
+
+        .blog-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: -4rem;
+        }
+
+        .blog-card {
+            background-color: #1a1a1a;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            width: 90%;  /* Increased width */
+            max-width: 1200px;  /* Increased maximum width */
+            margin-bottom: 2rem;  /* Spacing between blog posts */
+        }
+
+        .blog-card img {
+            width: 100%;
+            height: 250px;  /* Decreased height */
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .blog-card h2 {
+            color: white;
+            font-size: 2rem;
+            margin-top: 20px;
+        }
+
+        .blog-card p {
+            color: #bbb;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            margin-top: 30px;
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #e60000;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .read-more:hover {
+            background-color: #ff4d4d;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+            color: white;
+        }
+
+        /* Styling for the footer */
+        footer {
+            background-color: #111;
+            color: #ccc;
+            padding-top: 2rem;
+            padding-bottom: 3rem;
+        }
+
+        footer .max-w-6xl {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        footer .grid {
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        footer h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        footer a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #e60000;
+        }
+
+        footer .newsletter input,
+        footer .newsletter button {
+            padding: 0.75rem;
+            font-size: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 10px;
+        }
+
+        footer .newsletter input {
+            width: 100%;
+            border: 1px solid #444;
+            background-color: #222;
+            color: #fff;
+        }
+
+        footer .newsletter button {
+            width: 100%;
+            background-color: #e60000;
+            color: white;
+            border: none;
+        }
+
+        footer .newsletter button:hover {
+            background-color: #ff4d4d;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white font-sans">
+
+    <header class="flex items-center py-5 px-5 border-b border-gray-700 bg-black">
+        <div class="flex-1">
+            <img src="/src/assets/1.png" alt="SMEConnect Logo" class="h-20">
+        </div>
+        <div class="flex-1 flex justify-center space-x-8">
+            <a href="discover.html" class="text-white border-b-2 border-red-600 text-lg">Discover</a>
+            <a href="investors.html" class="text-gray-300 hover:text-white text-lg">For Investors</a>
+            <a href="smes.html" class="text-gray-300 hover:text-white text-lg">For SMEs</a>
+        </div>
+        <div class="flex-1 flex justify-end space-x-6">
+            <a href="login.html" class="bg-transparent text-white border-2 border-white px-5 py-2.5 rounded-md hover:bg-white hover:text-black text-lg">Login</a>
+        </div>
+    </header>
+
+    <!-- Navigation Bar (Centered and Eye-Catching) -->
+    <div class="flex justify-center mt-12">
+        <div class="nav-bar flex space-x-6">
+            <a href="discover.html">All Pages</a> <!-- "All Pages" set as the default page -->
+            <a href="blogs.html">Blogs</a>
+            <a href="about.html" class="text-gray-300 hover:text-white">About Us</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="text-center py-16">
+        <h1 class="text-4xl font-bold">Contact Us</h1>
+        <p class="text-lg text-gray-400 mt-2">We'd love to hear from you! Get in touch with us.</p>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="text-center py-16 px-5">
+        <h2 class="text-3xl font-bold">Send Us a Message</h2>
+        <p class="text-lg text-gray-400 mt-4 max-w-2xl mx-auto">
+            Whether you have questions, feedback, or just want to say hello, feel free to reach out to us. We're here to help!
+        </p>
+
+        <form action="#" method="POST" class="max-w-2xl mx-auto mt-8">
+            <div class="mb-4">
+                <input type="text" placeholder="Your Name" class="w-full p-4 rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-red-600" required>
+            </div>
+            <div class="mb-4">
+                <input type="email" placeholder="Your Email" class="w-full p-4 rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-red-600" required>
+            </div>
+            <div class="mb-4">
+                <textarea placeholder="Your Message" rows="4" class="w-full p-4 rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-red-600" required></textarea>
+            </div>
+            <button type="submit" class="bg-red-600 text-white py-3 px-8 rounded-md hover:bg-red-500">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                
+                <!-- Company Information Section -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Company</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="hover:text-red-500">About Us</a></li>
+                        <li><a href="#careers" class="hover:text-red-500">Careers</a></li>
+                        <li><a href="#contact" class="hover:text-red-500">Contact</a></li>
+                        <li><a href="#terms" class="hover:text-red-500">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Services Section -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#consulting" class="hover:text-red-500">Consulting</a></li>
+                        <li><a href="#investment" class="hover:text-red-500">Investment</a></li>
+                        <li><a href="#partnerships" class="hover:text-red-500">Partnerships</a></li>
+                        <li><a href="#financing" class="hover:text-red-500">Financing</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Social Media Section -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://facebook.com" target="_blank" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com" target="_blank" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-twitter"></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+    
+                <!-- Newsletter Section -->
+                <div class="newsletter">
+                    <h3 class="text-xl font-semibold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Subscribe to our newsletter to stay updated with the latest news and offers!</p>
+                    <input type="email" placeholder="Enter your email" class="mb-3">
+                    <button type="submit">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
