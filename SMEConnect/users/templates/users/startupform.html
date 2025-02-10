@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Startify - Startup Registration</title>
+    <link rel="stylesheet" href="{% static 'assets/css/startupform.css' %}"
+    />
+  </head>
+  <body>
+    <!-- Startup Registration Form -->
+    <section class="registration-form">
+      <h1>Startup Registration</h1>
+
+      <form action="{% url 'startup' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- Basic Information -->
+        <fieldset>
+          <legend>Basic Information</legend>
+
+          <label for="startup-name">Startup Name</label>
+          <input
+            type="text"
+            id="startup-name"
+            name="startup-name"
+            placeholder="Enter your startup name"
+            required
+          />
+
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+
+          <label for="website-url">Website URL (Optional)</label>
+          <input
+            type="url"
+            id="website-url"
+            name="website-url"
+            placeholder="Enter your website URL"
+          />
+
+          <label for="description">Description</label>
+          <textarea
+            id="description"
+            name="description"
+            placeholder="Tell us about your startup"
+            required
+          ></textarea>
+
+          <label for="founders-linkedin">Founder's LinkedIn</label>
+          <input
+            type="url"
+            id="founders-linkedin"
+            name="founders-linkedin"
+            placeholder="Enter Founder's LinkedIn URL"
+            required
+          />
+        </fieldset>
+
+        <!-- Business Verification -->
+        <fieldset>
+          <legend>Business Verification</legend>
+
+          <label for="business-reg-number">Business Registration Number</label>
+          <input
+            type="text"
+            id="business-reg-number"
+            name="business-reg-number"
+            placeholder="Enter your business registration number"
+            required
+          />
+
+          <label for="business-cert"
+            >Upload Business Registration Certificate</label
+          >
+          <input type="file" id="business-cert" name="business-cert" required />
+
+          <label for="year-founded">Year Founded</label>
+          <input
+            type="number"
+            id="year-founded"
+            name="year-founded"
+            placeholder="Enter the year your startup was founded"
+            required
+          />
+
+          <label for="team-size">Team Size</label>
+          <input
+            type="number"
+            id="team-size"
+            name="team-size"
+            placeholder="Enter your team size"
+            required
+          />
+        </fieldset>
+
+        <!-- Business Plan -->
+        <fieldset>
+          <legend>Business Plan</legend>
+
+          <label for="business-plan">Upload Business Plan</label>
+          <input type="file" id="business-plan" name="business-plan" required />
+        </fieldset>
+
+        <!-- Pitch Deck -->
+        <fieldset>
+          <legend>Pitch Deck</legend>
+
+          <label for="pitch-deck">Upload Pitch Deck (Video)</label>
+          <input
+            type="file"
+            id="pitch-deck"
+            name="pitch-deck"
+            accept=".pdf, .mp4, .mov"
+            required
+          />
+        </fieldset>
+
+        <button type="submit" class="btn primary">Submit Registration</button>
+      </form>
+    </section>
+
+    <script src="{% static "assets/js/script.js" %}"></script>
+  </body>
+</html>

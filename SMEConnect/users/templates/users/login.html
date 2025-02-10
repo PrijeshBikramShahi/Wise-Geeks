@@ -1,0 +1,250 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Login Page</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body,
+      html {
+        height: 100%;
+        font-family: Arial, sans-serif;
+      }
+
+      .loginScreen {
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+        background-image: url("{% static 'assets/img/cloud2.jpeg' %}");
+        background-size: cover;
+      }
+
+      .imageSection {
+        width: 45%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url("/src/assets/login_tile2.jpeg");
+        background-size: cover;
+        border-radius: 20px;
+        margin-left: 2%;
+      }
+
+      .loginSection {
+        width: 55%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      .logo {
+        width: 120px;
+        height: 48px;
+        background-image: url("/src/assets/logo_light.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin: 5% auto;
+      }
+
+      .loginContainer {
+        width: 60%;
+        margin: 0 auto;
+        color: white;
+      }
+
+      .titleSec {
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .greet {
+        font-size: 3.6rem;
+        font-weight: 300;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        font-weight: 200;
+      }
+
+      .creds {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .emailSec,
+      .passSec {
+        margin-bottom: 20px;
+      }
+
+      .emailSec label,
+      .passSec label {
+        font-size: 1rem;
+        font-weight: 300;
+      }
+
+      .emailSec input,
+      .passSec input {
+        width: 100%;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.3);
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-size: 1rem;
+      }
+
+      .remember {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+      }
+
+      .checkBox {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .forgotPass {
+        font-size: 1rem;
+        cursor: pointer;
+        color: white;
+      }
+
+      .bottom {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+        align-items: center;
+      }
+
+      button {
+        background-color: #3498db;
+        color: white;
+        font-size: 1.2rem;
+        font-weight: bold;
+        padding: 12px;
+        border-radius: 30px;
+        width: 90%;
+        margin-bottom: 20px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #2980b9;
+      }
+
+      .google {
+        font-size: 1rem;
+        color: white;
+      }
+
+      .signUpText {
+        text-align: center;
+        margin-bottom: 8%;
+      }
+
+      .signUpButton {
+        font-weight: bold;
+        color: #3498db;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <div class="loginScreen">
+      <div class="imageSection">
+        <div class="imgTile"></div>
+      </div>
+      <div class="loginSection">
+        <div class="logo"></div>
+        <form
+          id="loginForm"
+          class="loginContainer"
+          action="{% url 'login' %}"
+          method="post"
+        >
+          {% csrf_token %}
+          <div class="titleSec">
+            <h1 class="greet">Welcome Back</h1>
+            <h4 class="subtitle">
+              Enter your email and password to enter your account
+            </h4>
+          </div>
+          <div class="creds">
+            <div class="emailSec">
+              <label for="email">Username:</label>
+              <input type="text" id="email" name="username" required />
+            </div>
+            <div class="passSec">
+              <label for="password">Password:</label>
+              <input type="password" id="password" name="password1" required />
+            </div>
+          </div>
+          <div class="remember">
+            <div class="checkBox">
+              <input type="checkbox" id="rememberMe" />
+              <label for="rememberMe">Remember Me</label>
+            </div>
+            <div class="forgotPass">Forgot Password</div>
+            {% if message is not None %}
+            <div class="message">{{ message }}</div>
+            {% endif %}
+          </div>
+          <div class="bottom">
+            <button type="submit">Login</button>
+            <div class="google">
+              Sign in with <span class="signUpButton">Google</span>
+            </div>
+          </div>
+        </form>
+        <div class="signUpText">
+          Don't have an account?
+          <a href="{% url 'choose' %}"
+            ><span class="signUpButton">Sign Up</span></a
+          >
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Initialize state variables
+      let email = "";
+      let password = "";
+
+      // Handle input changes for email and password
+      document.getElementById("email").addEventListener("input", (e) => {
+        email = e.target.value;
+      });
+
+      document.getElementById("password").addEventListener("input", (e) => {
+        password = e.target.value;
+      });
+
+      // Handle login action
+      function handleLogin(event) {
+        event.preventDefault();
+
+        // Simulating login behavior
+        if (email && password) {
+          alert("Logged in successfully!");
+          // You can handle redirection here, for example:
+          // window.location.href = "/home";
+        } else {
+          alert("Please enter valid email and password!");
+        }
+      }
+    </script>
+  </body>
+</html>

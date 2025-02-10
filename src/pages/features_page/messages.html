@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Messages - SMEConnect</title>
+
+    <style>
+        /* Custom styles for the sidebar and messages */
+        .sidebar {
+            width: 300px;
+            height: 100vh;
+            background-color: #1c1c1c;
+            border-right: 1px solid #333;
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow-y: auto;
+        }
+
+        .messages-container {
+            margin-left: 300px;
+            padding: 20px;
+        }
+
+        .message-card {
+            background-color: #2d2d2d;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .message-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .message-input {
+            background-color: #2d2d2d;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 10px;
+            width: 100%;
+            color: white;
+        }
+
+        .message-input:focus {
+            outline: none;
+            border-color: #e60000;
+        }
+
+        .send-button {
+            background-color: #e60000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .send-button:hover {
+            background-color: #ff3333;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white font-sans">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="p-4 border-b border-gray-700">
+            <h2 class="text-xl font-bold">Messages</h2>
+        </div>
+        <div class="p-4">
+            <!-- List of Conversations -->
+            <div class="space-y-4">
+                <!-- Conversation 1 -->
+                <div class="flex items-center space-x-4 cursor-pointer">
+                    <img src="https://via.placeholder.com/40" alt="User" class="rounded-full">
+                    <div>
+                        <h3 class="font-semibold">John Doe</h3>
+                        <p class="text-sm text-gray-400">Hey, let's discuss the investment...</p>
+                    </div>
+                </div>
+
+                <!-- Conversation 2 -->
+                <div class="flex items-center space-x-4 cursor-pointer">
+                    <img src="https://via.placeholder.com/40" alt="User" class="rounded-full">
+                    <div>
+                        <h3 class="font-semibold">Jane Smith</h3>
+                        <p class="text-sm text-gray-400">I’m interested in your startup...</p>
+                    </div>
+                </div>
+
+                <!-- Conversation 3 -->
+                <div class="flex items-center space-x-4 cursor-pointer">
+                    <img src="https://via.placeholder.com/40" alt="User" class="rounded-full">
+                    <div>
+                        <h3 class="font-semibold">Michael Brown</h3>
+                        <p class="text-sm text-gray-400">Let’s schedule a meeting...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Messages Container -->
+    <div class="messages-container">
+        <!-- Message Header -->
+        <div class="flex items-center justify-between border-b border-gray-700 pb-4">
+            <div class="flex items-center space-x-4">
+                <img src="https://via.placeholder.com/40" alt="User" class="rounded-full">
+                <h2 class="text-xl font-bold">John Doe</h2>
+            </div>
+            <button class="text-gray-400 hover:text-white">View Profile</button>
+        </div>
+
+        <!-- Messages -->
+        <div class="mt-6 space-y-4">
+            <!-- Received Message -->
+            <div class="message-card">
+                <p class="text-gray-400">Hey, I’m interested in your startup. Can we discuss further?</p>
+                <p class="text-sm text-gray-500 mt-2">10:15 AM</p>
+            </div>
+
+            <!-- Sent Message -->
+            <div class="message-card bg-red-900">
+                <p class="text-white">Sure! Let’s schedule a call. When are you available?</p>
+                <p class="text-sm text-gray-300 mt-2">10:20 AM</p>
+            </div>
+
+            <!-- Received Message -->
+            <div class="message-card">
+                <p class="text-gray-400">How about tomorrow at 3 PM?</p>
+                <p class="text-sm text-gray-500 mt-2">10:25 AM</p>
+            </div>
+        </div>
+
+        <!-- Message Input -->
+        <div class="mt-6">
+            <textarea class="message-input" rows="3" placeholder="Type your message..."></textarea>
+            <button class="send-button mt-4">Send</button>
+        </div>
+    </div>
+
+    <!-- Adding FontAwesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Investor Registration - Startify</title>
+    <link rel="stylesheet" href="{% static "assets/css/investorform.css" %}">
+  </head>
+  <body>
+    <!-- Investor Registration Form -->
+    <div class="registration-form">
+      <h1>Investor Registration</h1>
+      <form
+        id="investor-form"
+        action="{% url 'investor' %}"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        {% csrf_token %}
+        <fieldset>
+          <legend>Basic Information</legend>
+
+          {{ form.as_p }}
+
+          <button type="submit">Submit Registration</button>
+        </fieldset>
+      </form>
+    </div>
+  </body>
+</html>

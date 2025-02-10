@@ -1,0 +1,274 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <title>Dashboard - SMEConnect</title>
+
+    <style>
+      /* Custom Styles */
+      .dashboard-container {
+        display: grid;
+        grid-template-columns: 80px 1fr 300px; /* Thin Nav | Center Tools | Right Profile */
+        height: 100vh;
+        background-color: #000000; /* Black background */
+      }
+
+      .nav-bar {
+        background-color: #111827; /* Dark gray background */
+        padding: 1rem;
+        border-right: 1px solid #1f2937; /* Subtle border */
+        transition: width 0.3s ease;
+        position: relative; /* For the extender arrow */
+        border-radius: 0 20px 20px 0; /* Curved edges */
+        box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2); /* Floating effect */
+      }
+
+      .nav-bar.expanded {
+        width: 250px; /* Expanded width */
+      }
+
+      .nav-link {
+        color: #9ca3af; /* Light gray text */
+        padding: 0.75rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        white-space: nowrap; /* Prevent text from wrapping */
+      }
+
+      .nav-link:hover {
+        background-color: #1f2937; /* Hover effect */
+        color: #ffffff;
+      }
+
+      .nav-link i {
+        font-size: 1.25rem; /* Icon size */
+      }
+
+      .nav-text {
+        display: none; /* Hide text by default */
+      }
+
+      .nav-bar.expanded .nav-text {
+        display: inline; /* Show text when expanded */
+      }
+
+      .extender-arrow {
+        position: absolute;
+        top: 1rem;
+        right: -12px;
+        background-color: #111827;
+        border: 1px solid #1f2937;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .extender-arrow:hover {
+        background-color: #1f2937;
+      }
+
+      .extender-arrow i {
+        font-size: 0.75rem;
+        color: #9ca3af;
+      }
+
+      .tools-section {
+        background-color: #000000; /* Black background */
+        padding: 1.5rem;
+        overflow-y: auto; /* Scrollable content */
+      }
+
+      .profile-section {
+        background-color: #111827; /* Dark gray background */
+        padding: 1.5rem;
+        border-left: 1px solid #1f2937; /* Subtle border */
+      }
+
+      .staggered-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .tool-card {
+        background-color: #111827; /* Card background */
+        padding: 1.5rem;
+        border-radius: 12px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .tool-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .tool-card h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+      }
+
+      .tool-card p {
+        color: #9ca3af; /* Light gray text */
+      }
+
+      .profile-card {
+        background-color: #111827; /* Card background */
+        padding: 1.5rem;
+        border-radius: 12px;
+        text-align: center;
+      }
+
+      .profile-card img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+
+  <body class="text-white font-sans">
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+      <!-- Left Navbar -->
+      <div class="nav-bar" id="navBar">
+        <!-- Extender Arrow -->
+        <div class="extender-arrow" id="extenderArrow">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+        <!-- Nav Links -->
+        <nav>
+          <a href="{% url 'homepage' %}" class="nav-link">
+            <i class="fas fa-home"></i>
+            <span class="nav-text">Home</span>
+          </a>
+          <a href="{% url 'discover' %}" class="nav-link">
+            <i class="fas fa-compass"></i>
+            <span class="nav-text">Discover</span>
+          </a>
+          <a href="{% url 'investor_view' %}" class="nav-link">
+            <i class="fas fa-hand-holding-usd"></i>
+            <span class="nav-text">Investors</span>
+          </a>
+          <a href="{% url 'startup_view' %}" class="nav-link">
+            <i class="fas fa-building"></i>
+            <span class="nav-text">SMEs</span>
+          </a>
+          <a href="#" class="nav-link">
+            <i class="fas fa-cog"></i>
+            <span class="nav-text">Settings</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Center Tools Section -->
+      <div class="tools-section">
+        <h2 class="text-2xl font-bold mb-6">Tools & Insights</h2>
+        <!-- Staggered Grid -->
+        <div class="staggered-grid">
+          <!-- Past History -->
+          <div class="tool-card">
+            <h3>Past History</h3>
+            <p>Review your past activities, connections, and transactions.</p>
+            <ul class="mt-2 space-y-2">
+              <li class="text-gray-400">Connected with GreenTech Solutions</li>
+              <li class="text-gray-400">Applied for funding on 10/15/2023</li>
+              <li class="text-gray-400">Updated business plan</li>
+            </ul>
+          </div>
+
+          <!-- Business Insights -->
+          <div class="tool-card">
+            <h3>Business Insights</h3>
+            <p>Get actionable insights to grow your business.</p>
+            <ul class="mt-2 space-y-2">
+              <li class="text-gray-400">Market trends for Q4 2023</li>
+              <li class="text-gray-400">Top-performing industries</li>
+              <li class="text-gray-400">Cbustomer acquisition tips</li>
+            </ul>
+          </div>
+
+          <!-- Profile Impressions -->
+          <div class="tool-card">
+            <h3>Profile Impressions</h3>
+            <p>Track how many people viewed your profile this month.</p>
+            <div class="mt-4">
+              <span class="text-2xl font-bold">1,234</span>
+              <span class="text-gray-400">views</span>
+            </div>
+          </div>
+
+          <!-- Recent Investors/Startups -->
+          <div class="tool-card">
+            <h3>Recent Interest</h3>
+            <p>Investors and startups that showed interest in your profile.</p>
+            <ul class="mt-2 space-y-2">
+              <li class="text-gray-400">Investor: Jane Doe (Tech Ventures)</li>
+              <li class="text-gray-400">Startup: AgriTech Innovations</li>
+              <li class="text-gray-400">
+                Investor: John Smith (Green Capital)
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Profile Section -->
+      <div class="profile-section">
+        <h2 class="text-xl font-bold mb-6">Profile</h2>
+        <!-- Profile Card -->
+        <div class="profile-card">
+          <img src="{% static "assets/img/naval.jpg" %}" alt="Profile Picture"
+          class="mx-auto" />
+          <h3 class="text-lg font-semibold">John Doe</h3>
+          <p class="text-gray-400">Founder & CEO, TechStart</p>
+          <div class="mt-4">
+            <a href="#" class="text-red-500 hover:text-red-400">Edit Profile</a>
+          </div>
+        </div>
+        <!-- Recent Activity -->
+        <div class="mt-6">
+          <h3 class="text-lg font-semibold mb-4">Recent Activity</h3>
+          <ul class="space-y-3">
+            <li class="text-gray-400">Connected with GreenTech Solutions</li>
+            <li class="text-gray-400">Updated business plan</li>
+            <li class="text-gray-400">Applied for funding</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript for Navbar Toggle -->
+    <script>
+      const navBar = document.getElementById("navBar");
+      const extenderArrow = document.getElementById("extenderArrow");
+
+      extenderArrow.addEventListener("click", () => {
+        navBar.classList.toggle("expanded");
+        extenderArrow.querySelector("i").classList.toggle("fa-chevron-right");
+        extenderArrow.querySelector("i").classList.toggle("fa-chevron-left");
+      });
+    </script>
+  </body>
+</html>

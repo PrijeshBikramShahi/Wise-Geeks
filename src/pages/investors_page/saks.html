@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <title>Discover - SMEConnect</title>
+    
+    <style>
+        /* Enhanced Animations and Styles */
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .gradient-bg {
+            background: linear-gradient(-45deg, #1a2a6c, #b21f1f, #fdbb2d, #22c1c3);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        /* Section styles */
+        .section-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .startup-card {
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .startup-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 95%;
+            max-width: 1200px;
+            margin: auto;
+            background: rgba(26, 26, 26, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            transform: scale(0.7) translateY(50px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        /* Tags and Progress Bar */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .funding-progress {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #fdbb2d, #22c1c3);
+            transition: width 1s ease;
+        }
+
+        /* Close Button */
+        .close-modal {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background: #e60000;
+            transform: rotate(90deg);
+        }
+
+        .live-indicator {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 10px;
+            height: 10px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(76, 175, 80, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white font-sans">
+
+    <!-- Navbar Section -->
+    <nav class="bg-gray-900 text-white py-4">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold">SMEConnect</a>
+            <div class="space-x-6">
+                <a href="#" class="hover:text-gray-400">Home</a>
+                <a href="#startups" class="hover:text-gray-400">Startups</a>
+                <a href="#about" class="hover:text-gray-400">About</a>
+                <a href="#contact" class="hover:text-gray-400">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="py-12 text-center gradient-bg">
+        <h1 class="text-4xl font-bold text-white">Discover Top Startups</h1>
+        <p class="mt-4 text-lg text-gray-300">Explore innovative projects and invest in the future</p>
+    </header>
+
+    <!-- Startups Grid Section -->
+    <section id="startups" class="max-w-7xl mx-auto px-6 py-12">
+        <h2 class="section-title text-white">Featured Startups</h2>
+        <div class="grid-container">
+            <!-- Startup Card 1 -->
+            <div class="startup-card" data-aos="fade-up" data-aos-delay="100" onclick="openModal('startup1')">
+                <div class="card-content p-6">
+                    <div class="video-preview">
+                        <div class="live-indicator"></div>
+                        <video width="100%" height="200" class="rounded-t-lg">
+                            <source src="video1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-semibold">GreenTech Solutions</h3>
+                        <p class="text-gray-400 mt-2">Revolutionary solar technology</p>
+                        <div class="funding-progress mt-4">
+                            <div class="progress-bar" style="width: 75%"></div>
+                        </div>
+                        <div class="flex justify-between text-sm text-gray-400">
+                            <span>$750,000 raised</span>
+                            <span>75% of goal</span>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">CleanTech</span>
+                            <span class="tag">Solar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Repeat similar structure for other cards -->
+        </div>
+    </section>
+
+    <!-- Enhanced Modal Section -->
+    <div id="startupModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <div class="modal-video-container">
+                <video id="modalVideo" class="modal-video" controls>
+                    <source src="" type="video/mp4">
+                </video>
+            </div>
+            <div class="modal-info">
+                <h2 id="modalTitle" class="text-3xl font-bold mb-4"></h2>
+                <p id="modalDescription" class="text-gray-300 mb-6"></p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4 class="text-gray-400">Funding Goal</h4>
+                        <p class="text-2xl font-bold" id="modalFunding"></p>
+                    </div>
+                    <div class="stat-card">
+                        <h4 class="text-gray-400">Team Size</h4>
+                        <p class="text-2xl font-bold" id="modalTeam"></p>
+                    </div>
+                    <div class="stat-card">
+                        <h4 class="text-gray-400">Stage</h4>
+                        <p class="text-2xl font-bold" id="modalStage"></p>
+                    </div>
+                </div>
+
+                <div class="flex justify-between items-center mt-8">
+                    <button class="gradient-bg text-white py-3 px-8 rounded-full hover:scale-105 transition-transform duration-300">
+                        Invest Now
+                    </button>
+                    <button class="bg-gray-800 text-white py-3 px-8 rounded-full hover:bg-gray-700 transition-colors duration-300">
+                        Schedule Call
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        const startups = {
+            startup1: {
+                title: "GreenTech Solutions",
+                description: "Leading the renewable energy revolution with AI-powered solar technology...",
+                videoUrl: "video1.mp4",
+                funding: "$1,000,000",
+                team: "15",
+                stage: "Seed"
+            }
+            // Add more startups here
+        };
+
+        function openModal(startupId) {
+            const startup = startups[startupId];
+            document.getElementById('modalTitle').innerText = startup.title;
+            document.getElementById('modalDescription').innerText = startup.description;
+            document.getElementById('modalVideo').src = startup.videoUrl;
+            document.getElementById('modalFunding').innerText = startup.funding;
+            document.getElementById('modalTeam').innerText = startup.team;
+            document.getElementById('modalStage').innerText = startup.stage;
+            document.getElementById('startupModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('startupModal').classList.remove('active');
+        }
+    </script>
+</body>
+</html>
