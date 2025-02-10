@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>For Investors - SMEConnect</title>
+
+    <style>
+        .staggered-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .staggered-card:nth-child(odd) {
+            grid-row: span 2;
+        }
+
+        .zoom-card {
+            transition: transform 0.3s ease;
+        }
+
+        .zoom-card:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-bar {
+            background-color: #1c1c1c;
+            border-radius: 30px;
+            padding: 10px 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-bar:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-bar a {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-bar a:hover {
+            background-color: #e60000;
+            transform: scale(1.1);
+        }
+
+        .nav-bar a.active {
+            border-bottom: 2px solid #e60000;
+            color: #e9e1e1;
+        }
+
+        .social-icons a {
+            color: gray;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white font-sans">
+
+    <!-- Header -->
+    <header class="flex items-center py-5 px-5 border-b border-gray-700 bg-black">
+        <div class="flex-1">
+            <img src="/src/assets/1.png" alt="SMEConnect Logo" class="h-20">
+        </div>
+        <div class="flex-1 flex justify-center space-x-8">
+            <a href="index.html" class="text-gray-300 hover:text-white text-lg">Home</a>
+            <a href="discover.html" class="text-gray-300 hover:text-white text-lg">Discover</a>
+            <a href="investors.html" class="text-white border-b-2 border-red-600 text-lg">For Investors</a>
+            <a href="smes.html" class="text-gray-300 hover:text-white text-lg">For SMEs</a>
+        </div>
+        <div class="flex-1 flex justify-end space-x-6">
+            <a href="login.html" class="bg-transparent text-white border-2 border-white px-5 py-2.5 rounded-md hover:bg-white hover:text-black text-lg">Login</a>
+        </div>
+    </header>
+
+    <!-- Hero Section for Investors -->
+    <section class="text-center py-20 bg-gradient-to-r from-gray-900 to-black">
+        <h1 class="text-5xl font-bold mb-4">Invest in the Future of SMEs</h1>
+        <p class="text-lg text-gray-400 mb-8">Discover high-potential startups and innovative businesses ready for investment.</p>
+        <div class="flex justify-center space-x-4">
+            <a href="#opportunities" class="bg-red-600 text-white px-8 py-3 rounded-md hover:bg-red-500 text-lg">Explore Opportunities</a>
+            <a href="#how-it-works" class="bg-transparent text-white border-2 border-white px-8 py-3 rounded-md hover:bg-white hover:text-black text-lg">How It Works</a>
+        </div>
+    </section>
+
+    <!-- Investment Opportunities Section -->
+    <section id="opportunities" class="max-w-6xl mx-auto py-16">
+        <h2 class="text-3xl font-bold text-center mb-8">Investment Opportunities</h2>
+        <div class="staggered-grid">
+            <!-- Opportunity 1 -->
+            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md">
+                <img src="https://via.placeholder.com/300x200" alt="Opportunity Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                <h3 class="text-xl font-semibold">GreenTech Innovations</h3>
+                <p class="text-gray-400 mt-2">Invest in sustainable energy solutions with high growth potential...</p>
+                <a href="#" class="text-red-500 mt-4 inline-block hover:underline">View Details</a>
+            </div>
+
+            <!-- Opportunity 2 -->
+            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md">
+                <img src="https://via.placeholder.com/300x200" alt="Opportunity Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                <h3 class="text-xl font-semibold">AgriTech Startups</h3>
+                <p class="text-gray-400 mt-2">Support the future of farming with AI-driven agricultural technologies...</p>
+                <a href="#" class="text-red-500 mt-4 inline-block hover:underline">View Details</a>
+            </div>
+
+            <!-- Opportunity 3 -->
+            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md">
+                <img src="https://via.placeholder.com/300x200" alt="Opportunity Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                <h3 class="text-xl font-semibold">FinTech Pioneers</h3>
+                <p class="text-gray-400 mt-2">Invest in digital payment solutions transforming the financial landscape...</p>
+                <a href="#" class="text-red-500 mt-4 inline-block hover:underline">View Details</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="bg-gray-900 py-16">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8">How It Works</h2>
+            <div class="grid sm:grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4">1. Explore Opportunities</h3>
+                        <p class="text-gray-400">Browse through a curated list of high-potential SMEs and startups.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center">
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4">2. Connect with Founders</h3>
+                        <p class="text-gray-400">Engage directly with SME founders to understand their vision and goals.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center">
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4">3. Invest & Grow</h3>
+                        <p class="text-gray-400">Make informed investments and track the growth of your portfolio.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="max-w-6xl mx-auto py-16">
+        <h2 class="text-3xl font-bold text-center mb-8">What Investors Say</h2>
+        <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Testimonial 1 -->
+            <div class="bg-gray-900 p-6 rounded-lg shadow-md">
+                <p class="text-gray-400 mb-4">"SMEConnect helped me discover innovative startups that aligned perfectly with my investment goals."</p>
+                <p class="text-red-500 font-semibold">- John Doe, Angel Investor</p>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="bg-gray-900 p-6 rounded-lg shadow-md">
+                <p class="text-gray-400 mb-4">"The platform is user-friendly, and the support team is always ready to assist."</p>
+                <p class="text-red-500 font-semibold">- Jane Smith, Venture Capitalist</p>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="bg-gray-900 p-6 rounded-lg shadow-md">
+                <p class="text-gray-400 mb-4">"I’ve made several successful investments through SMEConnect. Highly recommended!"</p>
+                <p class="text-red-500 font-semibold">- Michael Brown, Private Equity Investor</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <!-- Company Information -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Company</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-red-500">About Us</a></li>
+                        <li><a href="#" class="hover:text-red-500">Careers</a></li>
+                        <li><a href="#" class="hover:text-red-500">Contact</a></li>
+                        <li><a href="#" class="hover:text-red-500">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-red-500">Consulting</a></li>
+                        <li><a href="#" class="hover:text-red-500">Investment</a></li>
+                        <li><a href="#" class="hover:text-red-500">Partnerships</a></li>
+                        <li><a href="#" class="hover:text-red-500">Financing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social Media -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Subscribe</h3>
+                    <p class="text-gray-400 mb-4">Stay updated with the latest investment opportunities.</p>
+                    <form action="#" method="POST">
+                        <input type="email" name="email" placeholder="Enter your email" class="p-3 bg-gray-700 text-white rounded-md w-full mb-4">
+                        <button type="submit" class="bg-red-600 text-white p-3 rounded-md w-full hover:bg-red-500">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 border-t border-gray-700 pt-6">
+                <p class="text-sm text-gray-400">&copy; 2025 SMEConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+
+</html>

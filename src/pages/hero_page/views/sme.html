@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>For SMEs - SMEConnect</title>
+
+    <style>
+        .staggered-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .staggered-card:nth-child(odd) {
+            grid-row: span 2;
+        }
+
+        .zoom-card {
+            transition: transform 0.3s ease;
+        }
+
+        .zoom-card:hover {
+            transform: scale(1.05);
+        }
+
+        .drawer {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 400px;
+            height: 100%;
+            background-color: #1c1c1c;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+            transition: right 0.3s ease;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .drawer.open {
+            right: 0;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white font-sans">
+
+    <!-- Header -->
+    <header class="flex items-center py-5 px-5 border-b border-gray-700 bg-black">
+        <div class="flex-1">
+            <img src="/src/assets/1.png" alt="SMEConnect Logo" class="h-20">
+        </div>
+        <div class="flex-1 flex justify-center space-x-8">
+            <a href="index.html" class="text-gray-300 hover:text-white text-lg">Home</a>
+            <a href="discover.html" class="text-gray-300 hover:text-white text-lg">Discover</a>
+            <a href="investors.html" class="text-gray-300 hover:text-white text-lg">For Investors</a>
+            <a href="smes.html" class="text-white border-b-2 border-red-600 text-lg">For SMEs</a>
+        </div>
+        <div class="flex-1 flex justify-end space-x-6">
+            <a href="login.html" class="bg-transparent text-white border-2 border-white px-5 py-2.5 rounded-md hover:bg-white hover:text-black text-lg">Login</a>
+        </div>
+    </header>
+
+    <!-- Hero Section for SMEs -->
+    <section class="text-center py-20 bg-gradient-to-r from-gray-900 to-black">
+        <h1 class="text-5xl font-bold mb-4">Empowering Small and Medium Enterprises</h1>
+        <p class="text-lg text-gray-400 mb-8">Grow your business with access to funding, resources, and a global network of investors.</p>
+        <div class="flex justify-center space-x-4">
+            <a href="#opportunities" class="bg-red-600 text-white px-8 py-3 rounded-md hover:bg-red-500 text-lg">Get Started</a>
+            <a href="#how-it-works" class="bg-transparent text-white border-2 border-white px-8 py-3 rounded-md hover:bg-white hover:text-black text-lg">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Opportunities for SMEs Section -->
+    <section id="opportunities" class="max-w-6xl mx-auto py-16">
+        <h2 class="text-3xl font-bold text-center mb-8">Opportunities for SMEs</h2>
+        <div class="staggered-grid">
+            <!-- Opportunity 1 -->
+            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md">
+                <img src="https://via.placeholder.com/300x200" alt="Opportunity Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                <h3 class="text-xl font-semibold">Access to Funding</h3>
+                <p class="text-gray-400 mt-2">Connect with investors ready to fund your business growth...</p>
+                <a href="#" class="text-red-500 mt-4 inline-block hover:underline">Learn More</a>
+            </div>
+
+            <!-- Opportunity 2 -->
+            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md">
+                <img src="https://via.placeholder.com/300x200" alt="Opportunity Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                <h3 class="text-xl font-semibold">Business Resources</h3>
+                <p class="text-gray-400 mt-2">Access tools, guides, and mentorship to scale your business...</p>
+                <a href="#" class="text-red-500 mt-4 inline-block hover:underline">Learn More</a>
+            </div>
+
+            <!-- Opportunity 3 -->
+            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md">
+                <img src="https://via.placeholder.com/300x200" alt="Opportunity Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                <h3 class="text-xl font-semibold">Global Network</h3>
+                <p class="text-gray-400 mt-2">Join a network of SMEs and investors from around the world...</p>
+                <a href="#" class="text-red-500 mt-4 inline-block hover:underline">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="bg-gray-900 py-16">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8">How It Works</h2>
+            <div class="grid sm:grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4">1. Create Your Profile</h3>
+                        <p class="text-gray-400">Showcase your business and attract potential investors.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center">
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4">2. Connect with Investors</h3>
+                        <p class="text-gray-400">Engage with investors interested in your industry.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center">
+                    <div class="bg-gray-800 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4">3. Grow Your Business</h3>
+                        <p class="text-gray-400">Secure funding and resources to scale your operations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Available Investors Section -->
+    <section id="investors" class="bg-gray-900 py-16">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-8">Available Investors</h2>
+            <div class="staggered-grid">
+                <!-- Investor 1 -->
+                <div class="staggered-card zoom-card bg-gray-800 p-6 rounded-lg shadow-md">
+                    <img src="https://via.placeholder.com/300x200" alt="Investor Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                    <h3 class="text-xl font-semibold">GreenTech Ventures</h3>
+                    <p class="text-gray-400 mt-2">Investing in sustainable and innovative startups worldwide.</p>
+                    <button onclick="openDrawer('investor1')" class="text-red-500 mt-4 inline-block hover:underline">View Profile</button>
+                </div>
+
+                <!-- Investor 2 -->
+                <div class="staggered-card zoom-card bg-gray-800 p-6 rounded-lg shadow-md">
+                    <img src="https://via.placeholder.com/300x200" alt="Investor Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                    <h3 class="text-xl font-semibold">AgriTech Capital</h3>
+                    <p class="text-gray-400 mt-2">Focused on transforming agriculture through technology.</p>
+                    <button onclick="openDrawer('investor2')" class="text-red-500 mt-4 inline-block hover:underline">View Profile</button>
+                </div>
+
+                <!-- Investor 3 -->
+                <div class="staggered-card zoom-card bg-gray-800 p-6 rounded-lg shadow-md">
+                    <img src="https://via.placeholder.com/300x200" alt="Investor Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                    <h3 class="text-xl font-semibold">FinTech Innovators</h3>
+                    <p class="text-gray-400 mt-2">Supporting startups revolutionizing the financial industry.</p>
+                    <button onclick="openDrawer('investor3')" class="text-red-500 mt-4 inline-block hover:underline">View Profile</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Drawer Slider for Investor Profiles -->
+    <div class="overlay" id="overlay" onclick="closeDrawer()"></div>
+    <div class="drawer" id="drawer">
+        <div class="p-6">
+            <!-- Close Button -->
+            <button onclick="closeDrawer()" class="text-gray-400 hover:text-white text-2xl absolute top-4 right-4">&times;</button>
+           
+            <!-- Investor Profile Content -->
+            <div id="investor1" class="drawer-content hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Investor Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                <h3 class="text-2xl font-semibold">GreenTech Ventures</h3>
+                <p class="text-gray-400 mt-2">Investing in sustainable and innovative startups worldwide.</p>
+                <div class="mt-6">
+                    <h4 class="text-xl font-semibold">Investment Focus</h4>
+                    <ul class="text-gray-400 list-disc list-inside mt-2">
+                        <li>Renewable Energy</li>
+                        <li>Green Technology</li>
+                        <li>Sustainable Agriculture</li>
+                    </ul>
+                </div>
+                <div class="mt-6">
+                    <h4 class="text-xl font-semibold">Contact</h4>
+                    <p class="text-gray-400 mt-2">Email: contact@greentechventures.com</p>
+                    <p class="text-gray-400">Phone: +1 (123) 456-7890</p>
+                </div>
+                <button class="bg-red-600 text-white px-6 py-2 rounded-md mt-6 hover:bg-red-500">Connect</button>
+            </div>
+
+            <div id="investor2" class="drawer-content hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Investor Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                <h3 class="text-2xl font-semibold">AgriTech Capital</h3>
+                <p class="text-gray-400 mt-2">Focused on transforming agriculture through technology.</p>
+                <div class="mt-6">
+                    <h4 class="text-xl font-semibold">Investment Focus</h4>
+                    <ul class="text-gray-400 list-disc list-inside mt-2">
+                        <li>Precision Farming</li>
+                        <li>AgriTech Innovations</li>
+                        <li>Food Security</li>
+                    </ul>
+                </div>
+                <div class="mt-6">
+                    <h4 class="text-xl font-semibold">Contact</h4>
+                    <p class="text-gray-400 mt-2">Email: info@agritechcapital.com</p>
+                    <p class="text-gray-400">Phone: +1 (234) 567-8901</p>
+                </div>
+                <button class="bg-red-600 text-white px-6 py-2 rounded-md mt-6 hover:bg-red-500">Connect</button>
+            </div>
+
+            <div id="investor3" class="drawer-content hidden">
+                <img src="https://via.placeholder.com/300x200" alt="Investor Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                <h3 class="text-2xl font-semibold">FinTech Innovators</h3>
+                <p class="text-gray-400 mt-2">Supporting startups revolutionizing the financial industry.</p>
+                <div class="mt-6">
+                    <h4 class="text-xl font-semibold">Investment Focus</h4>
+                    <ul class="text-gray-400 list-disc list-inside mt-2">
+                        <li>Digital Payments</li>
+                        <li>Blockchain Technology</li>
+                        <li>Financial Inclusion</li>
+                    </ul>
+                </div>
+                <div class="mt-6">
+                    <h4 class="text-xl font-semibold">Contact</h4>
+                    <p class="text-gray-400 mt-2">Email: support@fintechinnovators.com</p>
+                    <p class="text-gray-400">Phone: +1 (345) 678-9012</p>
+                </div>
+                <button class="bg-red-600 text-white px-6 py-2 rounded-md mt-6 hover:bg-red-500">Connect</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <!-- Company Information -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Company</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-red-500">About Us</a></li>
+                        <li><a href="#" class="hover:text-red-500">Careers</a></li>
+                        <li><a href="#" class="hover:text-red-500">Contact</a></li>
+                        <li><a href="#" class="hover:text-red-500">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-red-500">Consulting</a></li>
+                        <li><a href="#" class="hover:text-red-500">Investment</a></li>
+                        <li><a href="#" class="hover:text-red-500">Partnerships</a></li>
+                        <li><a href="#" class="hover:text-red-500">Financing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social Media -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Subscribe</h3>
+                    <p class="text-gray-400 mb-4">Stay updated with the latest opportunities and resources.</p>
+                    <form action="#" method="POST">
+                        <input type="email" name="email" placeholder="Enter your email" class="p-3 bg-gray-700 text-white rounded-md w-full mb-4">
+                        <button type="submit" class="bg-red-600 text-white p-3 rounded-md w-full hover:bg-red-500">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 border-t border-gray-700 pt-6">
+                <p class="text-sm text-gray-400">&copy; 2025 SMEConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Drawer Slider -->
+    <script>
+        function openDrawer(investorId) {
+            const drawer = document.getElementById('drawer');
+            const overlay = document.getElementById('overlay');
+            const investorContent = document.getElementById(investorId);
+
+            // Hide all drawer content
+            document.querySelectorAll('.drawer-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+
+            // Show the selected investor content
+            investorContent.classList.remove('hidden');
+
+            // Open the drawer and overlay
+            drawer.classList.add('open');
+            overlay.classList.add('active');
+        }
+
+        function closeDrawer() {
+            const drawer = document.getElementById('drawer');
+            const overlay = document.getElementById('overlay');
+
+            // Close the drawer and overlay
+            drawer.classList.remove('open');
+            overlay.classList.remove('active');
+        }
+    </script>
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+
+</html>

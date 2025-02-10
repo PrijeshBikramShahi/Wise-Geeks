@@ -13,11 +13,21 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 20px;
+            grid-auto-rows: 200px; /* Base row height */
         }
 
-        /* Randomly applying different row spans to create staggered effect */
-        .staggered-card:nth-child(odd) {
-            grid-row: span 2;
+        /* Staggered effect for grid items */
+        .staggered-card {
+            grid-row: span 1; /* Default row span */
+        }
+
+        /* Randomly apply larger row spans for staggered effect */
+        .staggered-card:nth-child(3n + 1) {
+            grid-row: span 2; /* Every 3rd item starting from the 1st */
+        }
+
+        .staggered-card:nth-child(5n + 2) {
+            grid-row: span 3; /* Every 5th item starting from the 2nd */
         }
 
         /* Zoom effect for the entire article div on hover */
@@ -94,10 +104,10 @@
     <!-- Navigation Bar (Centered and Eye-Catching) -->
     <div class="flex justify-center mt-12">
         <div class="nav-bar flex space-x-6">
-            <a href="discover.html" class="active">All Pages</a> <!-- "All Pages" set as the default page -->
-            <a href="blogs.html">Blogs</a>
+            <a href="discover.html" class="active">All</a> <!-- "All Pages" set as the default page -->
             <a href="about.html">About Us</a>
-            <a href="contact.html">Contact</a>
+            <a href="blogs.html">Blogs</a>
+            <a href="contact.html">Featured</a>
         </div>
     </div>
 
@@ -114,7 +124,7 @@
         <!-- Staggered Grid of Articles -->
         <div class="staggered-grid">
             <!-- Article 1 -->
-            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0">
+            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md">
                 <a href="article1.html">
                     <img src="https://via.placeholder.com/300x200" alt="Article Image" class="rounded-md w-full h-48 object-cover mb-4" />
                     <h3 class="text-xl font-semibold">SME Growth in Nepal Hits New High</h3>
@@ -124,7 +134,7 @@
             </div>
   
             <!-- Article 2 -->
-            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0">
+            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md">
                 <a href="article2.html">
                     <img src="https://via.placeholder.com/300x200" alt="Article Image" class="rounded-md w-full h-48 object-cover mb-4" />
                     <h3 class="text-xl font-semibold">New Policies Favor Small Businesses</h3>
@@ -134,7 +144,7 @@
             </div>
   
             <!-- Article 3 -->
-            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0">
+            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md">
                 <a href="article3.html">
                     <img src="https://via.placeholder.com/300x200" alt="Article Image" class="rounded-md w-full h-48 object-cover mb-4" />
                     <h3 class="text-xl font-semibold">Innovations in Agriculture Boost Rural SMEs</h3>
@@ -144,7 +154,7 @@
             </div>
   
             <!-- Article 4 -->
-            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0">
+            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md">
                 <a href="article4.html">
                     <img src="https://via.placeholder.com/300x200" alt="Article Image" class="rounded-md w-full h-48 object-cover mb-4" />
                     <h3 class="text-xl font-semibold">SME Access to Technology in Asia</h3>
@@ -154,7 +164,7 @@
             </div>
   
             <!-- Article 5 -->
-            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0">
+            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md">
                 <a href="article5.html">
                     <img src="https://via.placeholder.com/300x200" alt="Article Image" class="rounded-md w-full h-48 object-cover mb-4" />
                     <h3 class="text-xl font-semibold">The Rise of FinTech Startups</h3>
@@ -164,7 +174,7 @@
             </div>
   
             <!-- Article 6 -->
-            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0">
+            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md">
                 <a href="article6.html">
                     <img src="https://via.placeholder.com/300x200" alt="Article Image" class="rounded-md w-full h-48 object-cover mb-4" />
                     <h3 class="text-xl font-semibold">The Future of SME Growth in Africa</h3>
@@ -174,7 +184,7 @@
             </div>
   
             <!-- Article 7 -->
-            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0">
+            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md">
                 <a href="article7.html">
                     <img src="https://via.placeholder.com/300x200" alt="Article Image" class="rounded-md w-full h-48 object-cover mb-4" />
                     <h3 class="text-xl font-semibold">SMEs in Latin America Overcome Economic Hurdles</h3>
@@ -184,7 +194,7 @@
             </div>
   
             <!-- Article 8 -->
-            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md mb-0">
+            <div class="staggered-card zoom-card bg-gray-900 p-6 rounded-lg shadow-md">
                 <a href="article8.html">
                     <img src="https://via.placeholder.com/300x200" alt="Article Image" class="rounded-md w-full h-48 object-cover mb-4" />
                     <h3 class="text-xl font-semibold">Boosting SME Growth in the Middle East</h3>
