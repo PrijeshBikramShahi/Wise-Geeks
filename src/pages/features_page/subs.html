@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Subscription Tiers - SMEConnect</title>
+
+    <style>
+        /* Custom styles for hover effects and animations */
+        .subscription-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #1c1c1c;
+            border: 1px solid #333;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .subscription-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .subscription-card.featured {
+            border: 2px solid #e60000;
+        }
+
+        .subscription-card.featured:hover {
+            box-shadow: 0 10px 20px rgba(230, 0, 0, 0.3);
+        }
+
+        .featured-badge {
+            background-color: #e60000;
+            color: white;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            transform: rotate(15deg);
+        }
+
+        .btn-subscribe {
+            background-color: #e60000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-subscribe:hover {
+            background-color: #ff3333;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white font-sans">
+
+    <header class="flex items-center py-1 px-5 border-b border-gray-700 bg-black">
+        <div class="flex-1">
+            <a href="/src/pages/hero_page/new.html"><img src="/src/assets/1.png" alt="SMEConnect Logo" class="h-28"></a>
+        </div>
+        <div class="flex-1 flex justify-center space-x-8">
+            <a href="/src/pages/hero_page/new.html" class="text-gray-300 hover:text-white text-lg">Home</a>
+            <a href="/src/pages/hero_page/discover.html" class="text-gray-300 hover:text-white text-lg">Discover</a>
+            <a href="/src/pages/hero_page/views/investor.html" class="text-gray-300 hover:text-white text-lg">For Investors</a>
+            <a href="/src/pages/hero_page/views/sme.html" class="text-gray-300 hover:text-white text-lg">For SMEs</a>
+        </div>
+        <div class="flex-1 flex justify-end space-x-6">
+            <a href="/src/pages/auth_page/login.html" class="bg-transparent text-white border-2 border-white px-5 py-2.5 rounded-md hover:bg-white hover:text-black text-lg">User</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="text-center py-16">
+        <h1 class="text-4xl font-bold">Choose Your Plan</h1>
+        <p class="text-lg text-gray-400 mt-2">Select a subscription tier that suits your needs and unlock exclusive benefits.</p>
+    </section>
+
+    <!-- Subscription Tiers Section -->
+    <section class="max-w-6xl mx-auto py-12 px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Basic Tier -->
+            <div class="subscription-card p-6 relative">
+                <h3 class="text-2xl font-bold">Basic</h3>
+                <p class="text-gray-400 mt-2">Perfect for startups and small businesses.</p>
+                <div class="mt-6">
+                    <span class="text-4xl font-bold">Free</span>
+                    <!-- <span class="text-gray-400">/month</span> -->
+                </div>
+                <ul class="mt-6 space-y-3">
+                    <li class="text-gray-400">✔ Access to basic features</li>
+                    <li class="text-gray-400">✔ Limited analytics</li>
+                    <li class="text-gray-400">✔ Email support</li>
+                    <li class="text-gray-400">✖ No priority access</li>
+                </ul>
+                <button class="btn-subscribe mt-8 w-full">Subscribe</button>
+            </div>
+
+            <!-- Pro Tier (Featured) -->
+            <div class="subscription-card p-6 relative featured">
+                <div class="featured-badge">Popular</div>
+                <h3 class="text-2xl font-bold">Pro</h3>
+                <p class="text-gray-400 mt-2">For growing businesses with advanced needs.</p>
+                <div class="mt-6">
+                    <span class="text-4xl font-bold">Rs 499</span>
+                    <span class="text-gray-400">/month</span>
+                </div>
+                <ul class="mt-6 space-y-3">
+                    <li class="text-gray-400">✔ All Basic features</li>
+                    <li class="text-gray-400">✔ Advanced analytics</li>
+                    <li class="text-gray-400">✔ Priority support</li>
+                    <li class="text-gray-400">✔ Early access to new features</li>
+                </ul>
+                <button class="btn-subscribe mt-8 w-full">Subscribe</button>
+            </div>
+
+            <!-- Enterprise Tier -->
+            <div class="subscription-card p-6 relative">
+                <h3 class="text-2xl font-bold">Enterprise</h3>
+                <p class="text-gray-400 mt-2">Tailored solutions for large organizations and businesses.</p>
+                <div class="mt-6">
+                    <span class="text-4xl font-bold">Rs 999</span>
+                    <span class="text-gray-400">/month</span>
+                </div>
+                <ul class="mt-6 space-y-3">
+                    <li class="text-gray-400">✔ All Pro features</li>
+                    <li class="text-gray-400">✔ Dedicated account manager</li>
+                    <li class="text-gray-400">✔ Custom integrations</li>
+                    <li class="text-gray-400">✔ 24/7 premium support</li>
+                </ul>
+                <button class="btn-subscribe mt-8 w-full">Contact Us</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <!-- Company Information Section -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Company</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="hover:text-red-500">About Us</a></li>
+                        <li><a href="#careers" class="hover:text-red-500">Careers</a></li>
+                        <li><a href="#contact" class="hover:text-red-500">Contact</a></li>
+                        <li><a href="#terms" class="hover:text-red-500">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services Section -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#consulting" class="hover:text-red-500">Consulting</a></li>
+                        <li><a href="#investment" class="hover:text-red-500">Investment</a></li>
+                        <li><a href="#partnerships" class="hover:text-red-500">Partnerships</a></li>
+                        <li><a href="#financing" class="hover:text-red-500">Financing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social Media Section -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://facebook.com" target="_blank" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com" target="_blank" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <!-- Newsletter Subscription Section -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Subscribe</h3>
+                    <p class="text-gray-400 mb-4">Stay updated with the latest news, startups, and updates from SMEConnect.</p>
+                    <form action="#" method="POST">
+                        <input type="email" name="email" placeholder="Enter your email" class="p-3 bg-gray-700 text-white rounded-md w-full mb-4">
+                        <button type="submit" class="bg-red-600 text-white p-3 rounded-md w-full hover:bg-red-500">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 border-t border-gray-700 pt-6">
+                <p class="text-sm text-gray-400">&copy; 2025 SMEConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Adding FontAwesome for social media icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+
+</html>
