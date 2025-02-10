@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Discover - SMEConnect</title>
+
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        /* Zoom effect for the entire article div on hover */
+        .zoom-card {
+            transition: transform 0.3s ease;
+        }
+
+        .zoom-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Styling for the navigation bar */
+        .nav-bar {
+            background-color: #1c1c1c;
+            border-radius: 30px;
+            padding: 10px 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-bar:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-bar a {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-bar a:hover {
+            background-color: #e60000;
+            transform: scale(1.1);
+        }
+
+        .nav-bar a.active {
+            border-bottom: 2px solid #e60000;
+            color: #e9e1e1;
+        }
+
+        /* Social media icons styling */
+        .social-icons a {
+            color: gray;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-white font-sans">
+
+    <header class="flex items-center py-1 px-5 border-b border-gray-700 bg-black">
+        <div class="flex-1">
+            <a href="/src/pages/hero_page/new.html"><img src="/src/assets/1.png" alt="SMEConnect Logo" class="h-28"></a>
+        </div>
+        <div class="flex-1 flex justify-center space-x-8">
+            <a href="/src/pages/hero_page/new.html" class="text-gray-300 hover:text-white text-lg">Home</a>
+            <a href="/src/pages/hero_page/discover.html" class="text-white border-b-2 border-red-600 text-lg">Discover</a>
+            <a href="/src/pages/hero_page/views/investor.html" class="text-gray-300 hover:text-white text-lg">For Investors</a>
+            <a href="/src/pages/hero_page/views/sme.html" class="text-gray-300 hover:text-white text-lg">For SMEs</a>
+        </div>
+        <div class="flex-1 flex justify-end space-x-6">
+            <a href="/src/pages/auth_page/login.html" class="bg-transparent text-white border-2 border-white px-5 py-2.5 rounded-md hover:bg-white hover:text-black text-lg">Login</a>
+        </div>
+    </header>
+    
+    <!-- Navigation Bar (Centered and Eye-Catching) -->
+    <div class="flex justify-center mt-12">
+        <div class="nav-bar flex space-x-6">
+            <a href="discover.html">All</a>
+            <a href="startups.html" class="active">Startups</a> <!-- Renamed and set as active -->
+            <a href="blogs.html">Blogs</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="text-center py-16">
+        <h1 class="text-4xl font-bold">Discover Promising Startups</h1>
+        <p class="text-lg text-gray-400 mt-2">Explore innovative startups and investment opportunities.</p>
+    </section>
+
+    <!-- Startups Section -->
+    <section class="max-w-6xl mx-auto py-12">
+        <h2 class="text-3xl font-bold text-center mb-6">Featured Startups</h2>
+  
+        <!-- Uniform Grid of Startups -->
+        <div class="grid-container">
+            <!-- Startup 1 -->
+            <div class="zoom-card bg-gray-900 p-6 rounded-lg shadow-md">
+                <a href="startup1.html">
+                    <img src="https://via.placeholder.com/300x200" alt="Startup Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                    <h3 class="text-xl font-semibold">GreenTech Solutions</h3>
+                    <p class="text-gray-400 mt-2">Revolutionizing sustainable energy with innovative solar solutions...</p>
+                    <a href="startup1.html" class="text-red-500 mt-4 inline-block hover:underline">View Details</a>
+                </a>
+            </div>
+  
+            <!-- Startup 2 -->
+            <div class="zoom-card bg-gray-900 p-6 rounded-lg shadow-md">
+                <a href="startup2.html">
+                    <img src="https://via.placeholder.com/300x200" alt="Startup Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                    <h3 class="text-xl font-semibold">AgriTech Innovations</h3>
+                    <p class="text-gray-400 mt-2">Transforming agriculture with AI-powered farming tools...</p>
+                    <a href="startup2.html" class="text-red-500 mt-4 inline-block hover:underline">View Details</a>
+                </a>
+            </div>
+  
+            <!-- Startup 3 -->
+            <div class="zoom-card bg-gray-900 p-6 rounded-lg shadow-md">
+                <a href="startup3.html">
+                    <img src="https://via.placeholder.com/300x200" alt="Startup Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                    <h3 class="text-xl font-semibold">FinTech Pioneers</h3>
+                    <p class="text-gray-400 mt-2">Enabling seamless digital payments for SMEs...</p>
+                    <a href="startup3.html" class="text-red-500 mt-4 inline-block hover:underline">View Details</a>
+                </a>
+            </div>
+  
+            <!-- Startup 4 -->
+            <div class="zoom-card bg-gray-900 p-6 rounded-lg shadow-md">
+                <a href="startup4.html">
+                    <img src="https://via.placeholder.com/300x200" alt="Startup Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                    <h3 class="text-xl font-semibold">HealthTech Labs</h3>
+                    <p class="text-gray-400 mt-2">Innovative healthcare solutions for underserved communities...</p>
+                    <a href="startup4.html" class="text-red-500 mt-4 inline-block hover:underline">View Details</a>
+                </a>
+            </div>
+  
+            <!-- Startup 5 -->
+            <div class="zoom-card bg-gray-900 p-6 rounded-lg shadow-md">
+                <a href="startup5.html">
+                    <img src="https://via.placeholder.com/300x200" alt="Startup Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                    <h3 class="text-xl font-semibold">EduTech Solutions</h3>
+                    <p class="text-gray-400 mt-2">Revolutionizing education with AI-driven learning platforms...</p>
+                    <a href="startup5.html" class="text-red-500 mt-4 inline-block hover:underline">View Details</a>
+                </a>
+            </div>
+  
+            <!-- Startup 6 -->
+            <div class="zoom-card bg-gray-900 p-6 rounded-lg shadow-md">
+                <a href="startup6.html">
+                    <img src="https://via.placeholder.com/300x200" alt="Startup Image" class="rounded-md w-full h-48 object-cover mb-4" />
+                    <h3 class="text-xl font-semibold">LogiTech</h3>
+                    <p class="text-gray-400 mt-2">Optimizing supply chains with cutting-edge logistics technology...</p>
+                    <a href="startup6.html" class="text-red-500 mt-4 inline-block hover:underline">View Details</a>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                
+                <!-- Company Information Section -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Company</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="hover:text-red-500">About Us</a></li>
+                        <li><a href="#careers" class="hover:text-red-500">Careers</a></li>
+                        <li><a href="#contact" class="hover:text-red-500">Contact</a></li>
+                        <li><a href="#terms" class="hover:text-red-500">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Services Section -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Services</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#consulting" class="hover:text-red-500">Consulting</a></li>
+                        <li><a href="#investment" class="hover:text-red-500">Investment</a></li>
+                        <li><a href="#partnerships" class="hover:text-red-500">Partnerships</a></li>
+                        <li><a href="#financing" class="hover:text-red-500">Financing</a></li>
+                    </ul>
+                </div>
+    
+                <!-- Social Media Section -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://facebook.com" target="_blank" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com" target="_blank" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="text-gray-400 hover:text-white text-2xl"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+    
+                <!-- Newsletter Subscription Section -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Subscribe</h3>
+                    <p class="text-gray-400 mb-4">Stay updated with the latest news, startups, and updates from SMEConnect.</p>
+                    <form action="#" method="POST">
+                        <input type="email" name="email" placeholder="Enter your email" class="p-3 bg-gray-700 text-white rounded-md w-full mb-4">
+                        <button type="submit" class="bg-red-600 text-white p-3 rounded-md w-full hover:bg-red-500">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+    
+            <div class="text-center mt-12 border-t border-gray-700 pt-6">
+                <p class="text-sm text-gray-400">&copy; 2025 SMEConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Adding FontAwesome for social media icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+</body>
+
+</html>
